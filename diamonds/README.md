@@ -41,7 +41,7 @@ ggplot(data, aes(x=carat, y=price, color=color)) +
     geom_point() + geom_smooth(span=smoothing) + 
     labs(x='Carat', y='Price', color='Color') + theme_bw()
 ```
-**Figure 1. Relation between diamond price, carats and color. The lines are smooths with a span of** [0.1]{name=smoothing type=range min=0.1 max=1 step=0.1}
+**Figure 1. Relation between diamond price, carats and color. The lines are smooths with a span of** [0.2]{name=smoothing type=range min=0.1 max=1 step=0.1}
 
 
 **Table 1. The number and mean price of diamonds in each color category.**
