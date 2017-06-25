@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <main>
+
+<div class="content">
+	<div data-title="">Hello world</div>
+
+	<p>A very simple HTML document containing Stencila extensions for reproducibility.</p>
+
+	<p>Here a code cell in Mini:</p>
+
+	<div data-cell="'Hello world, this is Mini!'"></div>
+
+	<p>and another code cell in JavaScript which tells us the current time:</p>
+
+	<div data-cell="run()" data-language="js">
+		<pre data-source="">`Hello world, this is Javascript and it is ${new Date()}!`</pre>
+	</div>
+</div>
+
+  </main>
+</body>
+</html>
