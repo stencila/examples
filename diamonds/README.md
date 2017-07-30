@@ -13,7 +13,7 @@ This is a small example Stencila document, stored as [Markdown in a Github repos
 
 ### Data
 
-We analysed the [diamonds data set](http://ggplot2.tidyverse.org/reference/diamonds.html) which contains the prices, carat, colour and other attributes of almost 54,000 diamonds. This data is also available in the Github repo as a [csv file](https://github.com/stencila/examples/diamonds/data.csv). A random sample of [1000]{name=sample_size type=range min=100 max=10000 step=100} diamonds was taken from the data (using Python).
+We analysed the [diamonds data set](http://ggplot2.tidyverse.org/reference/diamonds.html) which contains the prices, carat, colour and other attributes of almost 54,000 diamonds. This data is also available in the Github repo as a [csv file](https://github.com/stencila/examples/blob/master/diamonds/data.csv). A random sample of [1000]{name=sample_size type=range min=100 max=10000 step=100} diamonds was taken from the data (using Python).
 
 ```py
 #! data = (sample_size)
