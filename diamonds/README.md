@@ -1,7 +1,5 @@
 # Diamonds
 
-[![Open with Stencila](https://img.shields.io/badge/open%20with-Stencila-green.svg)](http://open.stenci.la/github://stencila/examples/diamonds)
-
 ### Introduction
 
 This is a small example Stencila document, stored as [Markdown in a Github repository](https://github.com/stencila/examples/diamonds), which illustrates:
