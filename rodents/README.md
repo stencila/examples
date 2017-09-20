@@ -17,7 +17,7 @@ The data were obtained from the _weecology_ [Portal Github repository](https://g
 library(dplyr)
 library(reshape2)
 
-# Read in data
+# Read in data from the directory where you've downloaded the files, likely not 'home/nokome' :)
 temp <- read.csv('/home/nokome/stencila/source/examples/rodents/Portal_rodent.csv.gz')
 species <- read.csv('/home/nokome/stencila/source/examples/rodents/Portal_rodent_species.csv', na.strings = '')
 # Create factor with species name labels
