@@ -17,4 +17,4 @@ Stencila is still in early beta. You can download and open these documents using
 We :heart: your feedback and pull requests! Please feel free to ask questions and tell us what you think on
 the [Stencila Community Forum](https://community.stenci.la/) or [Gitter chat channel]((https://gitter.im/stencila/stencila)).
 
-Please note that support for many of file formats in this repository (e.g. RMarkdown, Jupyter Notebooks) is proof-of-concept only. We will do further work on the implementations of [converters]() for these formats once Stencila's internal format is finalised.
+Please note that support for many of file formats in this repository (e.g. RMarkdown, Jupyter Notebooks) is proof-of-concept only. We will do further work on the implementations of [converters](https://github.com/stencila/convert) for these formats once Stencila's internal format is finalised.
