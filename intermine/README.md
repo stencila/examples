@@ -14,7 +14,7 @@ This example converts the tutorial notebooks into a single [Dar](https://github.
 
 This is a **very preliminary** version of this example!
 
-To convert the `.ipynb` files into the XML files in `tutorials.dar` we used the [`stencila/convert`](https://github.com/stencila/convert) toolset (you don't need to do that, the XML files are committed into this repo)
+To convert the `.ipynb` files into the XML files in `tutorials.dar` we used the [`stencila/convert`](https://github.com/stencila/convert) pavkage (you don't need to do that, the XML files are committed into this repo)
 
 ```bash
 stencila-convert import tutorials tutorials.dar
@@ -37,4 +37,4 @@ We don't recommend trying to build Stencila Desktop with these, unless you are a
 
 - Create a Docker image so that you can open this example using Binder
 
-- Write an exporter for (`DocumentJupyterConverter`)[https://github.com/stencila/convert/blob/master/src/document/DocumentJupyterConverter.js] so that when you edit a tutorial in Stencila Desktop you can save it back to `.ipynb`
+- Write an exporter for [`DocumentJupyterConverter`](https://github.com/stencila/convert/blob/master/src/document/DocumentJupyterConverter.js) so that when you edit a tutorial in Stencila Desktop you can save it back to `.ipynb`
