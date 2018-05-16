@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.1d3 20150301//EN"  "JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <front>
+    <article-meta>
+    </article-meta>
+  </front>
+
+  <body>
+    <sec>
+      <title>Intermine-Python: Tutorial 1: The Basics of a Query</title>
+      <p>Welcome to your first intermine-python tutorial. Over a series of approximately 12 tutorials, we will go through the basics of writing code in Python that allows us to query the intermine database.</p>
+      <p>This tutorial will tell you about the basics of intermine-python queries and how to write your first query. To get started, you would want to &#x201C;pip install&#x201D; the intermine package. Once you have installed the package, you are good to go!</p>
+      <p>We start by importing the Service class from InterMine&#x2019;s webservice module.</p>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">from intermine.webservice import Service</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <p>The Service class has a method called &#x201C;new_query&#x201D; that creates a query object:</p>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">service = Service(&quot;www.flymine.org/query/service&quot;)
+query=service.new_query()</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <p>A query object defines what we want to extract from the InterMine database. The first part of a query is referred to as the &#x201C;views&#x201D;. The views define the output columns that we want in our result. Let&#x2019;s query the FlyMine database to extract the symbol, primaryIdentifier and length of all genes.</p>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">query.select(&quot;Gene.symbol&quot;,&quot;Gene.primaryIdentifier&quot;, &quot;Gene.length&quot;)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <p>Now that we have added the output columns to our query request we can print the results of our query.</p>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">for row in query.rows(start=0,size=10):
+    print(row)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <p>The query can also be rewritten in the following way.</p>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">query=service.new_query(&quot;Gene&quot;)
+query.select(&quot;symbol&quot;,&quot;primaryIdentifier&quot;,&quot;length&quot;)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">for row in query.rows(start=0,size=10):
+    print(row)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <p>Feel free to use whichever method you find more comfortable. Now, let us try to write a new query that returns all organisms in the database.</p>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">query2=service.new_query()</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">query2.select(&quot;Organism.name&quot;)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <p>If we want to add another column to our final output, instead of rewriting your query, you can use the add_view method.</p>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">query2.add_view(&quot;Organism.taxonId&quot;)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">for row in query2.rows(start=0,size=10):
+    print(row)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <p>By default, the result will be sorted according to the first column that you defined. If you want to change this sorting order to another column, use the add_sort_order method of the query class.</p>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">query2.add_sort_order(&quot;Organism.taxonId&quot;)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">for row in query2.rows(start=0,size=10):
+    print(row)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <p>As you can see, I&#x2019;ve limited the results to only 10 rows. You can change this number if you want to view more or less rows. The above queries will list all the organisms or all the genes in the database, and hence we limited the number of rows in our output. Views or output columns are one part of queries. The second part is to add constraints on these queries. We will take a look at adding constraints in our next tutorial.</p>
+    </sec>
+  </body>
+  <back/>
+</article>
