@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.1d3 20150301//EN"  "JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <front>
+    <article-meta>
+      <title-group>
+        <article-title>Data Carpentry - R for Geospatial Data Analysis</article-title>
+      </title-group>
+      <contrib-group content-type="author">
+        <contrib contrib-type="person">
+          <name>
+            <surname>true</surname>
+          </name>
+        </contrib>
+        <contrib contrib-type="person">
+          <name>
+            <surname>true</surname>
+          </name>
+        </contrib>
+        <contrib contrib-type="person">
+          <name>
+            <surname>true</surname>
+          </name>
+        </contrib>
+        <contrib contrib-type="person">
+          <name>
+            <surname>true</surname>
+          </name>
+        </contrib>
+        <contrib contrib-type="person">
+          <name>
+            <surname>true</surname>
+          </name>
+        </contrib>
+        <contrib contrib-type="person">
+          <name>
+            <surname>true</surname>
+          </name>
+        </contrib>
+        <contrib contrib-type="person">
+          <name>
+            <surname>true</surname>
+          </name>
+        </contrib>
+        <contrib contrib-type="person">
+          <name>
+            <surname>true</surname>
+          </name>
+        </contrib>
+        <contrib contrib-type="person">
+          <name>
+            <surname>true</surname>
+          </name>
+        </contrib>
+      </contrib-group>
+      <pub-date pub-type="epub">
+        <string-date>16 May 2018</string-date>
+      </pub-date>
+    </article-meta>
+  </front>
+
+  <body>
+    <sec>
+      <title>Introduction to R for Geospatial Data</title>
+      <p>This document includes material from Data Carpentry lesson focusin on <ext-link ext-link-type="uri" xlink:href="http://www.datacarpentry.org/r-intro-geospatial/">Introduction to R for Geospatial Data</ext-link>. We are using this material to demonstrate the advantages of using R within <ext-link ext-link-type="uri" xlink:href="">Stencila</ext-link></p>
+      <sec>
+        <title>The data</title>
+        <p>We will start with downloading raw data. It is a dataset which is a subset of one of the large data sets available on <ext-link ext-link-type="uri" xlink:href="https://www.gapminder.org/data/">Gapminder</ext-link>. These are datasets containing information about various social and economic indicators.</p>
+        <p>We will download the data and read it into the dataframe called <monospace>gapminder</monospace>.</p>
+        <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="r" executable="yes">download.file(&quot;https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv&quot;, destfile = &quot;gapminder-FiveYearData.csv&quot;)
+gapminder &lt;- read.csv(&quot;gapminder-FiveYearData.csv&quot;)</code>
+        <code specific-use="output" language="json">{}</code>
+        </alternatives>
+        </named-content>
+        </code>
+        <p>Let&#x2019;s investigate gapminder a bit; the first thing we should always do is check out what the data looks like with str:</p>
+        <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="r" executable="yes">str(gapminder)</code>
+        <code specific-use="output" language="json">{}</code>
+        </alternatives>
+        </named-content>
+        </code>
+        <p>The output may be easier to interpret when we look at the first few columns:</p>
+        <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="r" executable="yes">head(gapminder)</code>
+        <code specific-use="output" language="json">{}</code>
+        </alternatives>
+        </named-content>
+        </code>
+      </sec>
+      <sec>
+        <title>Adding columns</title>
+        <p>We would like to create a new column to hold information on whether the life expectancy is below the world average life expectancy (70.5) or above:</p>
+        <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="r" executable="yes">below_average &lt;-  as.logical(gapminder$lifeExp&lt;70.5)
+head(gapminder)</code>
+        <code specific-use="output" language="json">{}</code>
+        </alternatives>
+        </named-content>
+        </code>
+        <p>We can then add this as a column via:</p>
+        <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="r" executable="yes">cbind(gapminder, below_average)</code>
+        <code specific-use="output" language="json">{}</code>
+        </alternatives>
+        </named-content>
+        </code>
+      </sec>
+      <sec>
+        <title>Data manipulation with dplyr</title>
+        <p>Manipulation of dataframes means many things to many researchers, we often select certain observations (rows) or variables (columns), we often group the data by a certain variable(s), or we even calculate summary statistics. We can do these operations using the normal base R operations:</p>
+        <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="r" executable="yes">mean(gapminder[gapminder$continent == &quot;Africa&quot;, &quot;gdpPercap&quot;])</code>
+        <code specific-use="output" language="json">{}</code>
+        </alternatives>
+        </named-content>
+        </code>
+        <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="r" executable="yes">mean(gapminder[gapminder$continent == &quot;Americas&quot;, &quot;gdpPercap&quot;])</code>
+        <code specific-use="output" language="json">{}</code>
+        </alternatives>
+        </named-content>
+        </code>
+        <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="r" executable="yes">mean(gapminder[gapminder$continent == &quot;Asia&quot;, &quot;gdpPercap&quot;])</code>
+        <code specific-use="output" language="json">{}</code>
+        </alternatives>
+        </named-content>
+        </code>
+        <p>But this isn&#x2019;t very nice because there is a fair bit of repetition. Repeating yourself will cost you time, both now and later, and potentially introduce some nasty bugs. It&#x2019;s easier to use the <monospace>dplyr</monospace> package.</p>
+        <p>Luckily, the dplyr package provides a number of very useful functions for manipulating dataframes in a way that will reduce the above repetition, reduce the probability of making errors, and probably even save you some typing. As an added bonus, you might even find the dplyr grammar easier to read.</p>
+        <p>Here we&#x2019;re going to cover 6 of the most commonly used functions as well as using pipes <monospace>(%&gt;%)</monospace> to combine them.</p>
+        <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="r" executable="yes">select()
+filter()
+group_by()
+summarize()
+mutate()</code>
+        <code specific-use="output" language="json">{}</code>
+        </alternatives>
+        </named-content>
+        </code>
+        <p>If you have have not installed this package earlier, please do so:</p>
+        <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="r" executable="yes">install.packages(&apos;dplyr&apos;)</code>
+        <code specific-use="output" language="json">{}</code>
+        </alternatives>
+        </named-content>
+        </code>
+        <p>If, for example, we wanted to move forward with only a few of the variables in our dataframe we could use the select() function. The strengths of dplyr lie in combining several functions using pipes. Since the pipes grammar is unlike anything we&#x2019;ve seen in R before, let&#x2019;s repeat what we&#x2019;ve done above using pipes.</p>
+        <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="r" executable="yes">year_country_gdp &lt;- gapminder %&gt;% select(year,country,gdpPercap)</code>
+        <code specific-use="output" language="json">{}</code>
+        </alternatives>
+        </named-content>
+        </code>
+        <p>Now let&#x2019;s load the package:</p>
+        <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="r" executable="yes">library(&quot;dplyr&quot;)</code>
+        <code specific-use="output" language="json">{}</code>
+        </alternatives>
+        </named-content>
+        </code>
+      </sec>
+    </sec>
+  </body>
+  <back/>
+</article>
