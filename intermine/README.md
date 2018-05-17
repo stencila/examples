@@ -18,6 +18,7 @@ To convert the `.ipynb` files into the XML files in `tutorials.dar` we used the 
 
 ```bash
 stencila-convert import tutorials tutorials.dar
+mv tutorials/*.jats.xml tutorials.dar/ # This extra line is necessary due to a bug
 ```
 
 To open and run the `tutorials.dar` folder you will need an `ipython` kernel installed on your system. In addition, this example relies on some very recent branches of various Stencila components which have not yet been integrated into Stencila Desktop:
