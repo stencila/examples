@@ -9,7 +9,7 @@ This example replicates the paper:
 
 This study was a replication attempt of Lin et al, 2012 (Cell) #48. The article is available on the eLife website https://elifesciences.org/articles/30274 and there is an Open Science Framework folder containing code and data https://osf.io/mokeb/.
 
-This is a **work in progress**
+This example is a **work in progress**. See below for more details.
 
 ![](screenshot-1.png)
 
@@ -21,6 +21,8 @@ Lewis et al used reproducible research methods to do this replication study incl
 - the ability of our RMarkdown converter to create valid, semantic JATS
 
 - the ability of our execution engine and R execution context to handle the R code used
+
+It addresses the use case of a researcher who already uses RMarkdown and who wants to keep their work in that format as long as possible towards the final publication (i.e avoiding conversion to intermediate formats like `.docx` or `.pdf`)
 
 
 ### Steps
@@ -38,7 +40,8 @@ Lewis et al used reproducible research methods to do this replication study incl
 
 ## Next steps
 
-- complete translating meta data to YAML front matter
+- Complete translating meta data to YAML front matter
 
-- put reproducible tables and figures inline (currently at end of document)
+- Put reproducible tables and figures inline (currently at end of document)
 
+- Implement inline outputs in Stencila, see https://github.com/stencila/stencila/issues/618
