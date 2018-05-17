@@ -1,0 +1,152 @@
+---
+title: "Data Carpentry - R for Geospatial Data Analysis"
+author: 
+  - name: Leah Wasser
+  - name: Joseph Stachelek
+  - name: Tyson Swetnam
+  - name:  Lauren O'Brien
+  - name:  Janani Selvaraj
+  - name:  Lachlan Deer
+  - name:  Chris Prener
+  - name:  Juan Fung
+  - name:  Jane Wyngaard 
+date: "16 May 2018"
+output: html_document
+---
+
+
+
+## Introduction to R for Geospatial Data
+
+This document includes material from Data Carpentry lesson focusin on [Introduction to R for Geospatial Data](http://www.datacarpentry.org/r-intro-geospatial/). We are using this material to demonstrate the advantages of
+using R within [Stencila]()
+
+
+### The data
+
+We will start with downloading raw data. It is a dataset which is a subset of one of the large data sets available on 
+[Gapminder](https://www.gapminder.org/data/). These are datasets containing information about various social and economic
+indicators.
+
+We will download the data and read it into the dataframe called `gapminder`.
+
+```{r}
+download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "gapminder-FiveYearData.csv")
+gapminder <- read.csv("gapminder-FiveYearData.csv")
+```
+
+Let’s investigate gapminder a bit; the first thing we should always do is check out what the data looks like with str:
+
+```{r}
+str(gapminder)
+```
+
+The output may be easier to interpret when we look at the first few columns:
+
+```{r}
+head(gapminder)
+```
+
+### Adding columns
+
+
+We would like to create a new column to hold information on whether the life expectancy is below the world average life expectancy (70.5) or above:
+
+```{r}
+below_average <-  as.logical(gapminder$lifeExp<70.5)
+head(gapminder)
+```
+
+We can then add this as a column via:
+
+```{r}
+cbind(gapminder, below_average)
+```
+
+
+### Data manipulation with dplyr
+
+Manipulation of dataframes means many things to many researchers, we often select certain observations (rows) or variables (columns), we often group the data by a certain variable(s), or we even calculate summary statistics. We can do these operations using the normal base R operations:
+
+```{r}
+mean(gapminder[gapminder$continent == "Africa", "gdpPercap"])
+```
+
+```{r}
+mean(gapminder[gapminder$continent == "Americas", "gdpPercap"])
+```
+
+```{r}
+mean(gapminder[gapminder$continent == "Asia", "gdpPercap"])
+```
+
+But this isn’t very nice because there is a fair bit of repetition. Repeating yourself will cost you time, both now and later, and potentially introduce some nasty bugs. It's easier to use the `dplyr` package.
+
+
+Luckily, the dplyr package provides a number of very useful functions for manipulating dataframes in a way that will reduce the above repetition, reduce the probability of making errors, and probably even save you some typing. As an added bonus, you might even find the dplyr grammar easier to read.
+
+Here we’re going to cover 6 of the most commonly used functions as well as using pipes `(%>%)` to combine them.
+
+```
+select()
+filter()
+group_by()
+summarize()
+mutate()
+```
+
+If you have have not installed this package earlier, please do so:
+
+```{r}
+install.packages('dplyr')
+```
+
+Now let’s load the package:
+
+```{r}
+library("dplyr")
+```
+
+
+If, for example, we wanted to move forward with only a few of the variables in our dataframe we could use the select() function. The strengths of dplyr lie in combining several functions using pipes. Since the pipes grammar is unlike anything we’ve seen in R before, let’s repeat what we’ve done above using pipes.
+
+```{r}
+year_country_gdp <- gapminder %>% select(year,country,gdpPercap)
+```
+
+
+To help you understand why we wrote that in that way, let’s walk through it step by step. First we summon the gapminder dataframe and pass it on, using the pipe symbol %>%, to the next step, which is the select() function. In this case we don’t specify which data object we use in the select() function since in gets that from the previous pipe. Fun Fact: There is a good chance you have encountered pipes before in the shell. In R, a pipe symbol is %>% while in the shell it is | but the concept is the same!
+
+#### Using filter()
+If we now wanted to move forward with the above, but only with European countries, we can combine select and filter
+
+```{r}
+year_country_gdp_euro <- gapminder %>%
+    filter(continent=="Europe") %>%
+    select(year,country,gdpPercap)
+```
+
+#### Using group_by() and summarize()
+Now, we were supposed to be reducing the error prone repetitiveness of what can be done with base R, but up to now we haven’t done that since we would have to repeat the above for each continent. Instead of `filter()`, which will only pass observations that meet your criteria (in the above: continent=="Europe"), we can use `group_by()`, which will essentially use every unique criteria that you could have used in filter.
+
+
+```{r}
+str(gapminder %>% group_by(continent))
+```
+
+You will notice that the structure of the dataframe where we used group_by() (grouped_df) is not the same as the original gapminder (data.frame). A grouped_df can be thought of as a list where each item in the listis a data.frame which contains only the rows that correspond to the a particular value continent (at least in the example above).
+
+#### Using summarize()
+The above was a bit on the uneventful side but group_by() is much more exciting in conjunction with summarize(). This will allow us to create new variable(s) by using functions that repeat for each of the continent-specific data frames. That is to say, using the group_by() function, we split our original dataframe into multiple pieces, then we can run functions (e.g. mean() or sd()) within summarize().
+
+```{r}
+gdp_bycontinents <- gapminder %>%
+    group_by(continent) %>%
+    summarize(mean_gdpPercap=mean(gdpPercap))
+```
+
+**Exercise**
+
+Calculate the average life expectancy per country. Which has the longest average life expectancy and which has the shortest average life expectancy?
+
+
