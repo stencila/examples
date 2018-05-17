@@ -1,0 +1,8 @@
+<!DOCTYPE sheet PUBLIC "DarManifest 0.1.0" "http://darformat.org/DarManifest-0.1.0.dtd">
+<dar>
+  <documents>
+    <document id="first-tutorial.ipynb" name="first-tutorial.ipynb" type="article" path="first-tutorial.ipynb.jats.xml" />
+    <document id="second-tutorial.ipynb" name="second-tutorial.ipynb" type="article" path="second-tutorial.ipynb.jats.xml" />
+  </documents>
+  <assets/>
+</dar>

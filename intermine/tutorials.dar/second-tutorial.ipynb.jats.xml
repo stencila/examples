@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.1d3 20150301//EN"  "JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <front>
+    <article-meta>
+    </article-meta>
+  </front>
+
+  <body>
+    <sec>
+      <title>Intermine-Python: Tutorial 2: Adding Constraints to a Query</title>
+      <p>This is the second tutorial in the Intermine-Python tutorial series. In the previous tutorial we learnt how to select the output columns as per our choice. Now, we will look at adding constraints to our queries to filter the results.</p>
+      <p>The first query that we will be looking at is to extract a list of all the Drosophilids in the database. We start with creating a service and query object as we had seen earlier. If we want to view all the possible output columns at once we can pass &#x201C;*&#x201D; as a parameter to the select function. This is Intermine&#x2019;s equivalent of SQL&#x2019;s SELECT *.</p>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">from intermine.webservice import Service</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">service = Service(&quot;www.flymine.org/query/service&quot;)
+query=service.new_query(&quot;Organism&quot;) </code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">query.select(&apos;*&apos;)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <p>To add a constraint to our query, we can use the add_constraint method available in the Query class.</p>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">query.add_constraint(&quot;genus&quot;,&quot;=&quot;,&quot;Drosophila&quot;)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <p>Now, we will print the results of our query. We will use the technique that we learnt in the first tutorial. You can also reduce the number of output columns by selecting only certain columns as we had seen in the first tutorial.</p>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">for row in query.rows():
+    print(row)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <p>We are now going to change the query a little bit. Let&#x2019;s say that we want to extract all the publication information about Droshophilids that have been published since 2010.</p>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">query2=service.new_query(&quot;Gene&quot;)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <p>Since we want to extract all the information related to each publication pass &#x201C;publications.*&#x201D; as our parameter.</p>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">query2.select(&quot;publications.*&quot;)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <p>This is followed by adding the contraints. First we want to limit our search to only Drosophilds and secondly we want to extract only those publications that were published in or after the year 2010.</p>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">query2.add_constraint(&quot;organism.genus&quot;,&quot;=&quot;,&quot;Drosophila&quot;)
+query2.add_constraint(&quot;publications.year&quot;,&quot;&gt;=&quot;,&quot;2010&quot;)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">for row in query2.rows(size=10):
+    print(row)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <p>The add_constraint method is an Intermine-y way of querying the database. The add_constraint method comprises of three parts: path: The path refers to to the attribute that we want to constrain op or operator: Defines how to constrain the path value: The value to be applied on the operator Some common operators are =, &gt;, &lt;, ONE OF, NONE OF, CONTAINS etc.</p>
+      <p>Now, we will take a look at another query.</p>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">query3=service.new_query(&quot;Gene&quot;)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">query3.add_constraint(&quot;organism.genus&quot;,&quot;=&quot;,&quot;Drosophila&quot;)
+query3.add_constraint(&quot;organism.species&quot;,&quot;ONE OF&quot;,[&apos;melanogaster&apos;, &apos;mojavensis&apos;])</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">for row in query3.rows(size=10):
+    print(row)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <p>When querying the database using consecutive add_constraint methods, by default the constraints are &#x201C;and&#x201D;ed together, i.e.&#xA0;a particular instance will be part of the final result only if it satisfies <italic>all</italic> the constraints. However, we have the option to &#x201C;or&#x201D; the constraints as well. We can use the set_logic method to do the same.</p>
+      <p>We will now look at an example for the same.</p>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">query4=service.new_query(&quot;Gene&quot;)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">query4.select(&quot;publications.*&quot;)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">query4.add_constraint(&quot;organism.genus&quot;,&quot;=&quot;,&quot;Drosophila&quot;) #A
+query4.add_constraint(&quot;organism.species&quot;,&quot;=&quot;,&quot;yakuba&quot;) #B
+query4.add_constraint(&quot;organism.species&quot;,&quot;=&quot;,&quot;melanogaster&quot;) #C
+query4.add_constraint(&quot;publications.year&quot;,&quot;&gt;=&quot;,&quot;2010&quot;) #D</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">query4.set_logic(&quot;A &amp; (B | C) &amp; D&quot;) #you can also use (&quot;A and (B or C) and D)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="pyjp" executable="yes">for row in query4.rows(size=10):
+    print(row)</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
+    </sec>
+  </body>
+  <back/>
+</article>
