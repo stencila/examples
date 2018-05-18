@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.1d3 20150301//EN"  "JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <front>
+    <article-meta>
+    </article-meta>
+  </front>
+
+  <body>
+    <sec>
+      <title>Diamonds</title>
+      <sec>
+        <title>Introduction</title>
+        <p>This is a small example Stencila document, stored as <ext-link ext-link-type="uri" xlink:href="https://github.com/stencila/examples/diamonds">Markdown in a Github repository</ext-link>, which illustrates:</p>
+        <list list-type="bullet">
+          <list-item>
+            <p>using multiple languages within a single document</p>
+          </list-item>
+          <list-item>
+            <p>passing data between languages</p>
+          </list-item>
+          <list-item>
+            <p>using an output to display a variable</p>
+          </list-item>
+          <list-item>
+            <p>using a inputs to create an interactive document</p>
+          </list-item>
+        </list>
+      </sec>
+      <sec>
+        <title>Data</title>
+        <p>We analysed the <ext-link ext-link-type="uri" xlink:href="http://ggplot2.tidyverse.org/reference/diamonds.html">diamonds data set</ext-link> which contains the prices, carat, colour and other attributes of almost 54,000 diamonds. This data is also available in the Github repo as a <ext-link ext-link-type="uri" xlink:href="https://github.com/stencila/examples/blob/master/diamonds/data.csv">csv file</ext-link>. A random sample of <milestone-start/>1000<milestone-end/> diamonds was taken from the data (using Python).</p>
+        <code language="python">#! data = (sample_size)
+return pandas.read_csv(&apos;data.csv&apos;).sample(sample_size)</code>
+      </sec>
+      <sec>
+        <title>Methods</title>
+        <p>We calculated the number and mean price of diamonds in each color category: J (worst) to D (best) (using SQLite).</p>
+        <code language="sql">--! summary = (data)
+SELECT color, count(*) diamonds, round(avg(price), 2) AS price FROM data GROUP BY color</code>
+        <p>We then used R to perform a generalised linear model of diamond price using carat and price as explanatory variables.</p>
+        <code language="r script">#! pseudo_r2 = (data)
+model &lt;- glm(price~carat+color, data=data)
+round(1-model$deviance/model$null.deviance,2)</code>
+      </sec>
+      <sec>
+        <title>Results</title>
+        <p>The price diamonds is related to both their carat and color (Figure 1, Table 1). The pseudo-R2 for the generalised model using the sample of data was .</p>
+        <code language="r script">#! (data,smoothing)
+ggplot(data, aes(x=carat, y=price, color=color)) + 
+    geom_point() + geom_smooth(span=smoothing) + 
+    labs(x=&apos;Carat&apos;, y=&apos;Price&apos;, color=&apos;Color&apos;) + theme_bw()</code>
+        <p><bold role="strong">Figure 1. Relation between diamond price, carats and color. The lines are smooths with a span of</bold> <milestone-start/>0.2<milestone-end/></p>
+        <p><bold role="strong">Table 1. The number and mean price of diamonds in each color category.</bold></p>
+        <preformat>summary</preformat>
+      </sec>
+    </sec>
+  </body>
+  <back/>
+</article>

@@ -1,0 +1,11 @@
+<!DOCTYPE sheet PUBLIC "DarManifest 0.1.0" "http://darformat.org/DarManifest-0.1.0.dtd">
+<dar>
+  <documents>
+    <document id="hello-world.html" name="hello-world.html" type="article" path="hello-world.html.jats.xml" />
+    <document id="hello-world.ipynb" name="hello-world.ipynb" type="article" path="hello-world.ipynb.jats.xml" />
+    <document id="hello-world.md" name="hello-world.md" type="article" path="hello-world.md.jats.xml" />
+    <document id="hello-world.Rmd" name="hello-world.Rmd" type="article" path="hello-world.Rmd.jats.xml" />
+    <document id="README.md" name="README.md" type="article" path="README.md.jats.xml" />
+  </documents>
+  <assets/>
+</dar>

@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sheet PUBLIC "Stencila Sheet 1.0" "http://stenci.la/Sheet-1.0.dtd">
+<sheet>
+  <meta>
+    <name/>
+    <title/>
+    <description/>
+    <columns>
+      <col name="speciescode" />
+      <col name="scientificname" />
+      <col name="taxa" />
+      <col name="commonname" />
+      <col name="censustarget" />
+      <col name="unidentified" />
+      <col name="rodent" />
+      <col name="granivore" />
+    </columns>
+  </meta>
+  <data>
+    <row>
+      <cell>AB</cell>
+      <cell>Amphispiza bilineata</cell>
+      <cell>Bird</cell>
+      <cell>Black-throated sparrow</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>AH</cell>
+      <cell>Ammospermophilus harrisi</cell>
+      <cell>Rodent-not censused</cell>
+      <cell>Harris&apos;s antelope squirrel</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>BA</cell>
+      <cell>Baiomys taylori</cell>
+      <cell>Rodent</cell>
+      <cell>Northern pygmy mouse</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>CB</cell>
+      <cell>Campylorhynchus brunneicapillus</cell>
+      <cell>Bird</cell>
+      <cell>Cactus wren</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>CQ</cell>
+      <cell>Callipepla squamata</cell>
+      <cell>Bird</cell>
+      <cell>Scaled quail</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>DM</cell>
+      <cell>Dipodomys merriami</cell>
+      <cell>Rodent</cell>
+      <cell>Merriam&apos;s kangaroo rat</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>DO</cell>
+      <cell>Dipodomys ordii</cell>
+      <cell>Rodent</cell>
+      <cell>Ord&apos;s kangaroo rat</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>DS</cell>
+      <cell>Dipodomys spectabilis</cell>
+      <cell>Rodent</cell>
+      <cell>Banner-tailed kangaroo rat</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>DX</cell>
+      <cell>Dipodomys sp.</cell>
+      <cell>Rodent</cell>
+      <cell>Kangaroo rat</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>EO</cell>
+      <cell>Eumeces obsoletus</cell>
+      <cell>Reptile</cell>
+      <cell>Great Plains skink</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>NA</cell>
+      <cell>Neotoma albigula</cell>
+      <cell>Rodent</cell>
+      <cell>White-throated woodrat</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>OL</cell>
+      <cell>Onychomys leucogaster</cell>
+      <cell>Rodent</cell>
+      <cell>Northern Grasshopper Mouse</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>OT</cell>
+      <cell>Onychomys torridus</cell>
+      <cell>Rodent</cell>
+      <cell>Southern grasshopper mouse</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>OX</cell>
+      <cell>Onychomys sp.</cell>
+      <cell>Rodent</cell>
+      <cell>Grasshopper mouse</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>PB</cell>
+      <cell>Chaetodipus baileyi</cell>
+      <cell>Rodent</cell>
+      <cell>Bailey&apos;s pocket mouse</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>PC</cell>
+      <cell>Pipilo chlorurus</cell>
+      <cell>Bird</cell>
+      <cell>Green-tailed towhee</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>PE</cell>
+      <cell>Peromyscus eremicus</cell>
+      <cell>Rodent</cell>
+      <cell>Cactus mouse</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>PF</cell>
+      <cell>Perognathus flavus</cell>
+      <cell>Rodent</cell>
+      <cell>Silky pocket mouse</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>PH</cell>
+      <cell>Chaetodipus hispidus&#xEF;&#xBF;&#xBD;</cell>
+      <cell>Rodent</cell>
+      <cell>Hispid pocket mouse</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>PI</cell>
+      <cell>Chaetodipus intermedius</cell>
+      <cell>Rodent</cell>
+      <cell>Rock pocket mouse</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>PL</cell>
+      <cell>Peromyscus leucopus</cell>
+      <cell>Rodent</cell>
+      <cell>White-footed mouse</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>PM</cell>
+      <cell>Peromyscus maniculatus</cell>
+      <cell>Rodent</cell>
+      <cell>Deer Mouse</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>PP</cell>
+      <cell>Chaetodipus penicillatus</cell>
+      <cell>Rodent</cell>
+      <cell>Desert pocket mouse</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>PU</cell>
+      <cell>Pipilo fuscus</cell>
+      <cell>Bird</cell>
+      <cell>Brown towhee</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>PX</cell>
+      <cell>Chaetodipus sp.</cell>
+      <cell>Rodent</cell>
+      <cell>Pocket Mouse</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>RF</cell>
+      <cell>Reithrodontomys fulvescens</cell>
+      <cell>Rodent</cell>
+      <cell>Fulvous harvest mouse</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>RM</cell>
+      <cell>Reithrodontomys megalotis</cell>
+      <cell>Rodent</cell>
+      <cell>Western harvest mouse</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>RO</cell>
+      <cell>Reithrodontomys montanus</cell>
+      <cell>Rodent</cell>
+      <cell>Plains harvest mouse</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>RX</cell>
+      <cell>Reithrodontomys sp.</cell>
+      <cell>Rodent</cell>
+      <cell>Harvest mouse</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>SA</cell>
+      <cell>Sylvilagus audubonii</cell>
+      <cell>Rabbit</cell>
+      <cell>Desert cottontail</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>SB</cell>
+      <cell>Spizella breweri</cell>
+      <cell>Bird</cell>
+      <cell>Brewer&apos;s sparrow</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>SF</cell>
+      <cell>Sigmodon fulviventer</cell>
+      <cell>Rodent</cell>
+      <cell>Tawny-bellied cotton rat</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>SH</cell>
+      <cell>Sigmodon hispidus</cell>
+      <cell>Rodent</cell>
+      <cell>Hispid cotton rat</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>SO</cell>
+      <cell>Sigmodon ochrognathus</cell>
+      <cell>Rodent</cell>
+      <cell>Yellow nosed cotton rat</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>SS</cell>
+      <cell>Spermophilus spilosoma</cell>
+      <cell>Rodent-not censused</cell>
+      <cell>Spotted ground squirrel</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>SX</cell>
+      <cell>Sigmodon sp.</cell>
+      <cell>Rodent</cell>
+      <cell>Cotton rat</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>UR</cell>
+      <cell>Rodent sp.</cell>
+      <cell>Rodent</cell>
+      <cell>Unidentified rodent</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>US</cell>
+      <cell>Sparrow sp.</cell>
+      <cell>Bird</cell>
+      <cell>Unidentified sparrow</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell>ZL</cell>
+      <cell>Zonotrichia leucophrys</cell>
+      <cell>Bird</cell>
+      <cell>White Crowned Sparrow</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+    </row>
+  </data>
+</sheet>

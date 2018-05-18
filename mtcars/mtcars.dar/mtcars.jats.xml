@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.1d3 20150301//EN"  "JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <front>
+    <article-meta>
+    </article-meta>
+  </front>
+
+  <body>
+    <sec>
+      <title>Yet another mtcars example</title>
+      <p>In this short example, we&#x2019;re going to use R <italic>code cells</italic> and a <italic>range input</italic> to create an interactive plot of the famous (infamous?) <ext-link ext-link-type="uri" xlink:href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/mtcars.html" xlink:title="undefined"><italic>mtcars</italic></ext-link> data set as described in the R help:</p>
+      <disp-quote>
+        <p>The data was extracted from the 1974</p>
+        <p><italic>Motor Trend</italic></p>
+        <p>US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973&#x2013;74 models).</p>
+      </disp-quote>
+      <p>First let&#x2019;s create a simple, static plot of fuel consumption versus horse power using &#x201C;ggplot&#x201D;:</p>
+      <code language="r script">#!
+ggplot(mtcars, aes(x=hp,y=mpg)) + 
+  geom_point() +
+  labs(x=&apos;Power (horsepower)&apos;, y=&apos;Fuel efficiency (miles per gallon)&apos;) + 
+  theme_bw()</code>
+      <p>Now, let&#x2019;s add a smoother line to the plot. We&#x2019;ll make the degree of smoothing adjustable by defining a range input called &#x201C;smoothing&#x201D; which we will pass to a new version of the plot cell: <milestone-start/>0.5<milestone-end/> (click on this to adjust the smoothing and see the settings for a range input):</p>
+      <code language="r script">#! (smoothing)
+ggplot(mtcars, aes(x=hp,y=mpg)) + 
+  geom_point() +
+  geom_smooth(span=smoothing) + 
+  labs(x=&apos;Power (horsepower)&apos;, y=&apos;Fuel efficiency (miles per gallon)&apos;) + 
+  theme_bw()</code>
+    </sec>
+  </body>
+  <back/>
+</article>
