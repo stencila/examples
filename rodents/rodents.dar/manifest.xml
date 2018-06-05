@@ -2,7 +2,7 @@
 <dar>
   <documents>
     <document id="Portal_rodent_species.csv" name="Portal_rodent_species.csv" type="application/sheetml" path="Portal_rodent_species.csv.sheet.xml" />
-    <document id="README.md" name="README.md" type="article" path="README.md.jats.xml" />
+    <document id="rodents" name="rodents" type="article" path="rodents.jats.xml" />
   </documents>
   <assets/>
 </dar>

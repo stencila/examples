@@ -1,7 +1,7 @@
 <!DOCTYPE sheet PUBLIC "DarManifest 0.1.0" "http://darformat.org/DarManifest-0.1.0.dtd">
 <dar>
   <documents>
-    <document id="README.md" name="README.md" type="article" path="README.md.jats.xml" />
+    <document id="mtcars" name="mtcars" type="article" path="mtcars.jats.xml" />
   </documents>
   <assets/>
 </dar>
