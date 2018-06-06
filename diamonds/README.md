@@ -1,54 +1,20 @@
-# Diamonds
+# Anaylsing Diamonds dataset with SQL and R
 
-### Introduction
+This example uses [diamonds data set](http://ggplot2.tidyverse.org/reference/diamonds.html) which contains the prices, carat, colour and other attributes of almost 54,000 diamonds. This data set is also available for downlad as a plain [csv file](https://github.com/stencila/examples/blob/master/diamonds/data.csv) (note that this is a large
+  file with over 5000 records totaling up to more than 13 MB).
 
-This is a small example Stencila document, stored as [Markdown in a Github repository](https://github.com/stencila/examples/diamonds), which illustrates:
+The example illustrates the following Stencila features:
 
-- using multiple languages within a single document
-- passing data between languages
-- using an output to display a variable
-- using a inputs to create an interactive document
-
-### Data
-
-We analysed the [diamonds data set](http://ggplot2.tidyverse.org/reference/diamonds.html) which contains the prices, carat, colour and other attributes of almost 54,000 diamonds. This data is also available in the Github repo as a [csv file](https://github.com/stencila/examples/blob/master/diamonds/data.csv). A random sample of [1000]{name=sample_size type=range min=100 max=10000 step=100} diamonds was taken from the data (using Python).
-
-```py
-#! data = (sample_size)
-return pandas.read_csv('data.csv').sample(sample_size)
-```
-
-### Methods
-
-We calculated the number and mean price of diamonds in each color category: J (worst) to D (best) (using SQLite).
-
-```sql
---! summary = (data)
-SELECT color, count(*) diamonds, round(avg(price), 2) AS price FROM data GROUP BY color
-```
-
-We then used R to perform a generalised linear model of diamond price using carat and price as explanatory variables.
-
-```r
-#! pseudo_r2 = (data)
-model <- glm(price~carat+color, data=data)
-round(1-model$deviance/model$null.deviance,2)
-```
-
-### Results
-
-The price diamonds is related to both their carat and color (Figure 1, Table 1). The pseudo-R2 for the generalised model using the sample of data was <span data-cell="pseudo_r2"><span>.
-
-```r
-#! (data,smoothing)
-ggplot(data, aes(x=carat, y=price, color=color)) + 
-    geom_point() + geom_smooth(span=smoothing) + 
-    labs(x='Carat', y='Price', color='Color') + theme_bw()
-```
-**Figure 1. Relation between diamond price, carats and color. The lines are smooths with a span of** [0.2]{name=smoothing type=range min=0.1 max=1 step=0.1}
+- using multiple languages within a single document;
+- passing data between languages;
+- using an output to display a variable;
+- using a inputs to create an interactive document.
 
 
-**Table 1. The number and mean price of diamonds in each color category.**
-```mini
-summary
-```
+The [`diamonds.source`](https://github.com/stencila/examples/tree/master/diamonds/diamonds.source) directory includes a Markdown file with the text of the analysis and some code samples. As it is Markdown, you cannot execute these bits of code. However,
+you can open this file in Stencila which will allow you to interact with the code.
+
+Currently Stencila Desktop allows you to directly open only Dar (Reproducible Document Archive) format. You can use [`Stencila converter`](https://github.com/stencila/convert)
+in order to convert files from other popular formats (`md`, `Rmd`, `ipynb`, `tex`, `odt`, `html`, `docx`) into `dar`.
+
+We already did this step for you, so if you don't want to deal with the conversion step, you can just download the [`examples`](https://github.com/stencila/examples/archive/master.zip) and open `diamonds.dar` folder in Stencila Desktop.
