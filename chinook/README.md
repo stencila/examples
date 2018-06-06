@@ -1,50 +1,14 @@
 # Analysing the Chinook Database using SQLite and R
 
-This example uses the [Chinook Database](https://github.com/lerocha/chinook-database "null") which represents a hypothetical a digital media store, including tables for artists, albums, media tracks, invoices and customers. We chose it for this example because it:
+This example uses the [Chinook Database](https://github.com/lerocha/chinook-database "null") which represents a hypothetical a digital media store, including tables for artists, albums, media tracks, invoices and customers.
 
--   is relatively small, so doesn't bloat the examples repo
--   has several tables, so is good for illustraing joins
--   is freely available!
+The [`chinook.source`](/chinook.source) directory includes a Markdown file with the text of the analysis and some code samples. As it is Markdown, you cannot execute these bits of code. However,
+you can open this file in Stencila which will allow you to interact with the code.
 
-Let's start by querying the `sqlite_master` table to get a list of the tables in the database,
+In order to do that, you need to use [`Stencila converter`](https://github.com/stencila/convert). Once you installed it, run the following command in your terminal:
 
-```sql
---!
-SELECT name FROM sqlite_master WHERE type='table'
+```bash
+stencila-convert.js import chinook.source chinook.dar
 ```
 
-We can also inspect the structure of each table by looking at the `sql` column,
-
-```sql
---!
-SELECT sql FROM sqlite_master WHERE name IN ('Album', 'Artist')
-```
-
-
-
-OK, so lets look at the top ten artists in terms of numbers of albums,
-
-```sql
---!
-SELECT Name, count(AlbumId) AS Albums
-FROM Artist LEFT JOIN Album ON Artist.ArtistId=Album.ArtistId 
-GROUP BY Name
-ORDER BY Albums DESC
-LIMIT 10
-```
-
-
-
-What are the most common first letters for album titles? Let's count the number of albums having each first letter using SQL and then plot the result in R:
-
-```sql
---! albums_per_letter =
-SELECT substr(Title,1,1) AS Letter, count(AlbumId) AS Albums
-FROM Album
-GROUP BY Letter
-```
-
-```r
-#! (albums_per_letter)
-ggplot(albums_per_letter, aes(x=Letter, y=Albums)) + geom_bar(stat='identity')
-```
+We already did this step for you, so if you don't want to deal with the conversion step, you can just download the [`examples`](https://github.com/stencila/examples/archive/master.zip) and open `chinook.dar` folder in Stencila.
