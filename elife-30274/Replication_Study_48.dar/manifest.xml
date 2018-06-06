@@ -1,0 +1,8 @@
+<!DOCTYPE sheet PUBLIC "DarManifest 0.1.0" "http://darformat.org/DarManifest-0.1.0.dtd">
+<dar>
+  <documents>
+    <document id="Replication_Study_48_edited.Rmd" name="Replication_Study_48_edited.Rmd" type="article" path="Replication_Study_48_edited.Rmd.jats.xml" />
+    <document id="Replication_Study_48.Rmd" name="Replication_Study_48.Rmd" type="article" path="Replication_Study_48.Rmd.jats.xml" />
+  </documents>
+  <assets/>
+</dar>
