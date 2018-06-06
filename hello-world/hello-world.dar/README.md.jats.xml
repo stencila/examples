@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.1d3 20150301//EN"  "JATS-archivearticle1.dtd">
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <front>
+    <article-meta>
+    </article-meta>
+  </front>
+
+  <body>
+    <sec>
+      <title>Hello world</title>
+      <p>A simple &#x2018;Hello world&#x2019; example repeated using alternative formats:</p>
+      <list list-type="bullet">
+        <list-item>
+          <p><ext-link ext-link-type="uri" xlink:href="hello-world.html"><monospace>.html</monospace> with Mini and JavaScript</ext-link></p>
+        </list-item>
+        <list-item>
+          <p><ext-link ext-link-type="uri" xlink:href="hello-world.md"><monospace>.md</monospace> with Mini and JavaScript</ext-link></p>
+        </list-item>
+        <list-item>
+          <p><ext-link ext-link-type="uri" xlink:href="hello-world.Rmd"><monospace>.Rmd</monospace> with R</ext-link></p>
+        </list-item>
+        <list-item>
+          <p><ext-link ext-link-type="uri" xlink:href="hello-world.ipynb"><monospace>.ipynb</monospace> with Python</ext-link></p>
+        </list-item>
+      </list>
+    </sec>
+  </body>
+  <back/>
+</article>
