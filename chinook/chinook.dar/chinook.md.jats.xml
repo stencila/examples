@@ -37,8 +37,7 @@
       </code>
       <p>OK, so lets look at the top ten artists in terms of numbers of albums,</p>
       <code specific-use="cell"><named-content><alternatives>
-          <code specific-use="source" language="sql" executable="yes">--
-SELECT Name, count(AlbumId) AS Albums
+          <code specific-use="source" language="sql" executable="yes">SELECT Name, count(AlbumId) AS Albums
 FROM Artist LEFT JOIN Album ON Artist.ArtistId=Album.ArtistId
 GROUP BY Name
 ORDER BY Albums DESC
@@ -47,9 +46,9 @@ LIMIT 10</code>
       </alternatives>
       </named-content>
       </code>
-      <p>What are the most common first letters for album titles? Let&#x2019;s count the number of albums having each first letter using SQL and then plot the result in R:</p>
+      <p>What are the most common first letters for album titles? Let&#x2019;s count the number of albums having each first letter using SQL and then plot the result in R. We want to save the result of the SQL query and in Stencila we can do it by simply assigning the result to a variable <monospace>albums_per_letter</monospace>:</p>
       <code specific-use="cell"><named-content><alternatives>
-          <code specific-use="source" language="sql" executable="yes">-- albums_per_letter =
+          <code specific-use="source" language="sql" executable="yes">albums_per_letter =
 SELECT substr(Title,1,1) AS Letter, count(AlbumId) AS Albums
 FROM Album
 GROUP BY Letter</code>
@@ -57,9 +56,9 @@ GROUP BY Letter</code>
       </alternatives>
       </named-content>
       </code>
+      <p>Now we can use the variable <monospace>albums_per_letter</monospace> in R code:</p>
       <code specific-use="cell"><named-content><alternatives>
-          <code specific-use="source" language="r" executable="yes">#! (albums_per_letter)
-ggplot(albums_per_letter, aes(x=Letter, y=Albums)) + geom_bar(stat=&apos;identity&apos;)</code>
+          <code specific-use="source" language="r" executable="yes">ggplot(albums_per_letter, aes(x=Letter, y=Albums)) + geom_bar(stat=&apos;identity&apos;)</code>
       <code specific-use="output" language="json">{}</code>
       </alternatives>
       </named-content>

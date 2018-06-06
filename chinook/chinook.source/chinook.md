@@ -18,12 +18,9 @@ We can also inspect the structure of each table by looking at the `sql` column,
 SELECT sql FROM sqlite_master WHERE name IN ('Album', 'Artist')
 ```
 
-
-
 OK, so lets look at the top ten artists in terms of numbers of albums,
 
 ```sql
---
 SELECT Name, count(AlbumId) AS Albums
 FROM Artist LEFT JOIN Album ON Artist.ArtistId=Album.ArtistId
 GROUP BY Name
@@ -31,18 +28,18 @@ ORDER BY Albums DESC
 LIMIT 10
 ```
 
-
-
-What are the most common first letters for album titles? Let's count the number of albums having each first letter using SQL and then plot the result in R:
+What are the most common first letters for album titles? Let's count the number of albums having each first letter using SQL and then plot the result in R.
+We want to save the result of the SQL query and in Stencila we can do it by simply assigning the result to a variable `albums_per_letter`:
 
 ```sql
--- albums_per_letter =
+albums_per_letter =
 SELECT substr(Title,1,1) AS Letter, count(AlbumId) AS Albums
 FROM Album
 GROUP BY Letter
 ```
 
+Now we can use the variable `albums_per_letter` in R code:
+
 ```r
-#! (albums_per_letter)
 ggplot(albums_per_letter, aes(x=Letter, y=Albums)) + geom_bar(stat='identity')
 ```
