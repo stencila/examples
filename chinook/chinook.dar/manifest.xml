@@ -1,7 +1,7 @@
 <!DOCTYPE sheet PUBLIC "DarManifest 0.1.0" "http://darformat.org/DarManifest-0.1.0.dtd">
 <dar>
   <documents>
-    <document id="chinook" name="chinook" type="article" path="chinook.jats.xml" />
+    <document id="chinook.md" name="chinook.md" type="article" path="chinook.md.jats.xml" />
   </documents>
   <assets/>
 </dar>
