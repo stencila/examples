@@ -1,7 +1,9 @@
-<archive type="rda">
+<!DOCTYPE sheet PUBLIC "DarManifest 0.1.0" "http://darformat.org/DarManifest-0.1.0.dtd">
+<dar>
   <documents>
-    <document id="r-sheet-notes.md" name="r-sheet-notes.md" type="application/jats4m" path="r-sheet-notes.md.jats.xml" src="r-sheet-notes.md" />
-    <document id="r-sheet.csv" name="r-sheet.csv" type="application/sheetml" path="r-sheet.csv.sheet.xml" src="r-sheet.csv" />
+    <document id="r-sheet.csv" name="r-sheet.csv" type="sheet" path="r-sheet.csv.sheet.xml" />
+    <document id="r-sheet.md" name="r-sheet.md" type="article" path="r-sheet.md.jats.xml" />
+    <document id="r-spreadsheet-plot.csv" name="r-spreadsheet-plot.csv" type="sheet" path="r-spreadsheet-plot.csv.sheet.xml" />
   </documents>
   <assets/>
-</archive>
+</dar>

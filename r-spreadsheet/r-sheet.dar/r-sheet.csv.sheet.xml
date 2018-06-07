@@ -7,14 +7,301 @@
     <description/>
     <columns>
       <col/>
+      <col name="Day 1" />
+      <col name="Day 2" />
+      <col name="Day 3" />
+      <col name="Day 4" />
+      <col name="Day 5" />
+      <col name="Day 6" />
+      <col name="Day 7" />
+      <col name="Day 8" />
+      <col name="Day 9" />
+      <col name="Day 10" />
+      <col name="Day 11" />
+      <col name="Day 12" />
+      <col name="Day 13" />
+      <col name="Day 14" />
+      <col name="Day 15" />
+      <col name="Day 16" />
+      <col name="Day 17" />
+      <col name="Day 18" />
+      <col name="Day 19" />
+      <col name="Day 20" />
+      <col name="Day 21" />
+      <col name="Day 22" />
+      <col name="Day 23" />
+      <col name="Day 24" />
+      <col name="Day 25" />
+      <col name="Day 26" />
+      <col name="Day 27" />
+      <col name="Day 28" />
+      <col name="Day 29" />
+      <col name="Day 30" />
+      <col name="Day 31" />
+      <col name="Day 32" />
+      <col name="Day 33" />
+      <col name="Day 34" />
+      <col name="Day 35" />
+      <col name="Day 36" />
+      <col name="Day 37" />
+      <col name="Day 38" />
+      <col name="Day 39" />
+      <col name="Day 40" />
     </columns>
   </meta>
   <data>
     <row>
-      <cell language="r">= cos(1)</cell>
+      <cell>Patient 1</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>3</cell>
+      <cell>1</cell>
+      <cell>2</cell>
+      <cell>4</cell>
+      <cell>7</cell>
+      <cell>8</cell>
+      <cell>3</cell>
+      <cell>3</cell>
+      <cell>3</cell>
+      <cell>10</cell>
+      <cell>5</cell>
+      <cell>7</cell>
+      <cell>4</cell>
+      <cell>7</cell>
+      <cell>7</cell>
+      <cell>12</cell>
+      <cell>18</cell>
+      <cell>6</cell>
+      <cell>13</cell>
+      <cell>11</cell>
+      <cell>11</cell>
+      <cell>7</cell>
+      <cell>7</cell>
+      <cell>4</cell>
+      <cell>6</cell>
+      <cell>8</cell>
+      <cell>8</cell>
+      <cell>4</cell>
+      <cell>4</cell>
+      <cell>5</cell>
+      <cell>7</cell>
+      <cell>3</cell>
+      <cell>4</cell>
+      <cell>2</cell>
+      <cell>3</cell>
+      <cell>0</cell>
+      <cell>0</cell>
     </row>
     <row>
-      <cell language="r">= plot(1,A1)</cell>
+      <cell>Patient 2</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>2</cell>
+      <cell>1</cell>
+      <cell>2</cell>
+      <cell>1</cell>
+      <cell>3</cell>
+      <cell>2</cell>
+      <cell>2</cell>
+      <cell>6</cell>
+      <cell>10</cell>
+      <cell>11</cell>
+      <cell>5</cell>
+      <cell>9</cell>
+      <cell>4</cell>
+      <cell>4</cell>
+      <cell>7</cell>
+      <cell>16</cell>
+      <cell>8</cell>
+      <cell>6</cell>
+      <cell>18</cell>
+      <cell>4</cell>
+      <cell>12</cell>
+      <cell>5</cell>
+      <cell>12</cell>
+      <cell>7</cell>
+      <cell>11</cell>
+      <cell>5</cell>
+      <cell>11</cell>
+      <cell>3</cell>
+      <cell>3</cell>
+      <cell>5</cell>
+      <cell>4</cell>
+      <cell>4</cell>
+      <cell>5</cell>
+      <cell>5</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>Patient 3</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+      <cell>3</cell>
+      <cell>3</cell>
+      <cell>2</cell>
+      <cell>6</cell>
+      <cell>2</cell>
+      <cell>5</cell>
+      <cell>9</cell>
+      <cell>5</cell>
+      <cell>7</cell>
+      <cell>4</cell>
+      <cell>5</cell>
+      <cell>4</cell>
+      <cell>15</cell>
+      <cell>5</cell>
+      <cell>11</cell>
+      <cell>9</cell>
+      <cell>10</cell>
+      <cell>19</cell>
+      <cell>14</cell>
+      <cell>12</cell>
+      <cell>17</cell>
+      <cell>7</cell>
+      <cell>12</cell>
+      <cell>11</cell>
+      <cell>7</cell>
+      <cell>4</cell>
+      <cell>2</cell>
+      <cell>10</cell>
+      <cell>5</cell>
+      <cell>4</cell>
+      <cell>2</cell>
+      <cell>2</cell>
+      <cell>3</cell>
+      <cell>2</cell>
+      <cell>2</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>Patient 4</cell>
+      <cell>0</cell>
+      <cell>0</cell>
+      <cell>2</cell>
+      <cell>0</cell>
+      <cell>4</cell>
+      <cell>2</cell>
+      <cell>2</cell>
+      <cell>1</cell>
+      <cell>6</cell>
+      <cell>7</cell>
+      <cell>10</cell>
+      <cell>7</cell>
+      <cell>9</cell>
+      <cell>13</cell>
+      <cell>8</cell>
+      <cell>8</cell>
+      <cell>15</cell>
+      <cell>10</cell>
+      <cell>10</cell>
+      <cell>7</cell>
+      <cell>17</cell>
+      <cell>4</cell>
+      <cell>4</cell>
+      <cell>7</cell>
+      <cell>6</cell>
+      <cell>15</cell>
+      <cell>6</cell>
+      <cell>4</cell>
+      <cell>9</cell>
+      <cell>11</cell>
+      <cell>3</cell>
+      <cell>5</cell>
+      <cell>6</cell>
+      <cell>3</cell>
+      <cell>3</cell>
+      <cell>4</cell>
+      <cell>2</cell>
+      <cell>3</cell>
+      <cell>2</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>Patient 5</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+      <cell>3</cell>
+      <cell>3</cell>
+      <cell>1</cell>
+      <cell>3</cell>
+      <cell>5</cell>
+      <cell>2</cell>
+      <cell>4</cell>
+      <cell>4</cell>
+      <cell>7</cell>
+      <cell>6</cell>
+      <cell>5</cell>
+      <cell>3</cell>
+      <cell>10</cell>
+      <cell>8</cell>
+      <cell>10</cell>
+      <cell>6</cell>
+      <cell>17</cell>
+      <cell>9</cell>
+      <cell>14</cell>
+      <cell>9</cell>
+      <cell>7</cell>
+      <cell>13</cell>
+      <cell>9</cell>
+      <cell>12</cell>
+      <cell>6</cell>
+      <cell>7</cell>
+      <cell>7</cell>
+      <cell>9</cell>
+      <cell>6</cell>
+      <cell>3</cell>
+      <cell>2</cell>
+      <cell>2</cell>
+      <cell>4</cell>
+      <cell>2</cell>
+      <cell>0</cell>
+      <cell>1</cell>
+      <cell>1</cell>
+    </row>
+    <row/>
+    <row>
+      <cell>Mean for Patient 1 </cell>
+      <cell language="r">= mean(B2:AO2)</cell>
+    </row>
+    <row>
+      <cell>Mean for Patient 2 </cell>
+      <cell language="r">= mean(B3:AO3)</cell>
+    </row>
+    <row>
+      <cell>Mean for Patient 3 </cell>
+      <cell language="r">= mean(B4:AO4)</cell>
+    </row>
+    <row>
+      <cell>Mean for Patient 4 </cell>
+      <cell language="r">= mean(B5:AO5)</cell>
+    </row>
+    <row>
+      <cell>Mean for Patient 5 </cell>
+      <cell language="r">= mean(B6:AO6)</cell>
+    </row>
+    <row/>
+    <row/>
+    <row>
+      <cell>&#xE2;&#x80;&#x9C;r= hist(B2:AO2)&#xE2;&#x80;&#x9D;</cell>
+    </row>
+    <row>
+      <cell>&#xE2;&#x80;&#x9C;r= hist(B3:AO3)&#xE2;&#x80;&#x9D;</cell>
+    </row>
+    <row>
+      <cell>&#xE2;&#x80;&#x9C;r= hist(B4:AO4)&#xE2;&#x80;&#x9D;</cell>
+    </row>
+    <row>
+      <cell>&#xE2;&#x80;&#x9C;r= hist(B5:AO5)&#xE2;&#x80;&#x9D;</cell>
+    </row>
+    <row>
+      <cell>&#xE2;&#x80;&#x9C;r= hist(B6:AO6)&#xE2;&#x80;&#x9D;</cell>
     </row>
   </data>
 </sheet>
