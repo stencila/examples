@@ -11,7 +11,7 @@
       <title>Hello world</title>
       <p>A very simple RMarkdown document with one code cell which tells us the R version being used and the current time. Try changing the code in the cell.</p>
       <code specific-use="cell"><named-content><alternatives>
-          <code specific-use="source" language="r" executable="yes">paste(&quot;Hello world, this is&quot;, R.version.string, &quot;and it&apos;s&quot;, date(), &quot;!&quot;)</code>
+          <code specific-use="source" language="r-r" executable="yes">paste(&quot;Hello world, this is&quot;, R.version.string, &quot;and it&apos;s&quot;, date(), &quot;!&quot;)</code>
       <code specific-use="output" language="json">{}</code>
       </alternatives>
       </named-content>

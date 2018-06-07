@@ -12,8 +12,13 @@
       <p>A very simple Markdown document with one code cell in Mini:</p>
       <preformat>&apos;Hello world, this is Mini!&apos;</preformat>
       <p>and another code cell in JavaScript which tells us the current time. Try changing the code in the cell.</p>
-      <code language="javascript">//!
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="javascript" executable="yes">//!
 return `Hello world, this is Javascript and it is ${new Date()}!`</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
     </sec>
   </body>
   <back/>
