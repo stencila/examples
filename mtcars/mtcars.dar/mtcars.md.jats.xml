@@ -16,18 +16,28 @@
         <p>US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973&#x2013;74 models).</p>
       </disp-quote>
       <p>First let&#x2019;s create a simple, static plot of fuel consumption versus horse power using &#x201C;ggplot&#x201D;:</p>
-      <code language="r script">#!
-ggplot(mtcars, aes(x=hp,y=mpg)) + 
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="r" executable="yes">#!
+ggplot(mtcars, aes(x=hp,y=mpg)) +
   geom_point() +
-  labs(x=&apos;Power (horsepower)&apos;, y=&apos;Fuel efficiency (miles per gallon)&apos;) + 
+  labs(x=&apos;Power (horsepower)&apos;, y=&apos;Fuel efficiency (miles per gallon)&apos;) +
   theme_bw()</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
       <p>Now, let&#x2019;s add a smoother line to the plot. We&#x2019;ll make the degree of smoothing adjustable by defining a range input called &#x201C;smoothing&#x201D; which we will pass to a new version of the plot cell: <milestone-start/>0.5<milestone-end/> (click on this to adjust the smoothing and see the settings for a range input):</p>
-      <code language="r script">#! (smoothing)
-ggplot(mtcars, aes(x=hp,y=mpg)) + 
+      <code specific-use="cell"><named-content><alternatives>
+          <code specific-use="source" language="r" executable="yes">#! (smoothing)
+ggplot(mtcars, aes(x=hp,y=mpg)) +
   geom_point() +
-  geom_smooth(span=smoothing) + 
-  labs(x=&apos;Power (horsepower)&apos;, y=&apos;Fuel efficiency (miles per gallon)&apos;) + 
+  geom_smooth(span=smoothing) +
+  labs(x=&apos;Power (horsepower)&apos;, y=&apos;Fuel efficiency (miles per gallon)&apos;) +
   theme_bw()</code>
+      <code specific-use="output" language="json">{}</code>
+      </alternatives>
+      </named-content>
+      </code>
     </sec>
   </body>
   <back/>

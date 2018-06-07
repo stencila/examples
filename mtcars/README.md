@@ -1,32 +1,17 @@
-# Yet another mtcars example
+# Yet another mtcars example (analysing data using R)
 
 In this short example, we're going to use R _code cells_ and a _range input_ to create an interactive plot of the famous (infamous?) [_mtcars_](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/mtcars.html "undefined") data set as described in the R help:
 
-> The data was extracted from the 1974 
+> The data was extracted from the 1974
 >
 > _Motor Trend_
 >
 >  US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
 
-First let's create a simple, static plot of fuel consumption versus horse power using "ggplot":
+The [`mtcars.source`](mtcars.source) directory includes a Markdown file with the text of the analysis and some code samples. As it is Markdown, you cannot execute these bits of code. However,
+you can open this file in Stencila which will allow you to interact with the code.
 
-```r
-#!
-ggplot(mtcars, aes(x=hp,y=mpg)) + 
-  geom_point() +
-  labs(x='Power (horsepower)', y='Fuel efficiency (miles per gallon)') + 
-  theme_bw()
-```
+Currently Stencila Desktop allows you to directly open only Dar (Reproducible Document Archive) format. You can use [`Stencila converter`](https://github.com/stencila/convert)
+in order to convert files from other popular formats (`md`, `Rmd`, `ipynb`, `tex`, `odt`, `html`, `docx`) into `dar`.
 
-Now, let's add a smoother line to the plot. We'll make the degree of smoothing adjustable by defining a range input called "smoothing" which we will pass to a new version of the plot cell: [0.5]{name=smoothing type=range min=0.1 max=1 step=0.1} (click on this to adjust the smoothing and see the settings for a range input):
-
-
-```r
-#! (smoothing)
-ggplot(mtcars, aes(x=hp,y=mpg)) + 
-  geom_point() +
-  geom_smooth(span=smoothing) + 
-  labs(x='Power (horsepower)', y='Fuel efficiency (miles per gallon)') + 
-  theme_bw()
-```
- 
+We already did this step for you, so if you don't want to deal with the conversion step, you can just download the [`examples`](https://github.com/stencila/examples/archive/master.zip) and open `mtcars.dar` folder in Stencila Desktop.
