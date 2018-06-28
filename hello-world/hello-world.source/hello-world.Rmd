@@ -1,7 +1,0 @@
-# Hello world
-
-A very simple RMarkdown document with one code cell which tells us the R version being used and the current time. Try changing the code in the cell.
-
-```{r}
-paste("Hello world, this is", R.version.string, "and it's", date(), "!")
-```
