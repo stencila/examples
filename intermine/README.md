@@ -12,21 +12,15 @@ This example converts the tutorial notebooks into a single [Dar](https://github.
 
 ### Approach
 
-This is a **very preliminary** version of this example!
+This is a **preliminary** version of this example!
 
-To convert the `.ipynb` files into the XML files in `tutorials.dar` we used the [`stencila/convert`](https://github.com/stencila/convert) pavkage (you don't need to do that, the XML files are committed into this repo)
+To convert the `.ipynb` files into the XML files in `tutorials.dar` we used the [`stencila/cli`](https://github.com/stencila/cli) tool (you don't need to do that, the XML files are committed into this repo)
 
 ```bash
-stencila-convert import tutorials tutorials.dar
-mv tutorials/*.jats.xml tutorials.dar/ # This extra line is necessary due to a bug
+stencila convert tutorials tutorials.dar
 ```
 
-To open and run the `tutorials.dar` folder you will need an `ipython` kernel installed on your system. In addition, this example relies on some very recent branches of various Stencila components which have not yet been integrated into Stencila Desktop:
-
-- https://github.com/stencila/stencila/pull/682
-- https://github.com/stencila/node/pull/42
-
-We don't recommend trying to build Stencila Desktop with these, unless you are already comfortable building it and using `npm link` to use these branches. We hope to get them merged soon and release a binary with them in the coming weeks.
+To open and run the `tutorials.dar` folder using Stencila Desktop you will need an `ipython` kernel installed on your system.
 
 ### Next steps
 
@@ -36,6 +30,6 @@ We don't recommend trying to build Stencila Desktop with these, unless you are a
 
 ![](screenshot-print.png)
 
-- Create a Docker image so that you can open this example using Binder
+- Create a Docker image with `intermine` package installed so that you can open this example using Binder or Stencila Hub
 
-- Write an exporter for [`DocumentJupyterConverter`](https://github.com/stencila/convert/blob/master/src/document/DocumentJupyterConverter.js) so that when you edit a tutorial in Stencila Desktop you can save it back to `.ipynb`
+- Write an `export` method for [`IPYNBConverter`](https://github.com/stencila/convert/blob/master/src/IPYNBConverter.js) so that when you edit a tutorial in Stencila Desktop you can save it back to `.ipynb`

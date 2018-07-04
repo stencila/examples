@@ -1,8 +1,8 @@
 <!DOCTYPE sheet PUBLIC "DarManifest 0.1.0" "http://darformat.org/DarManifest-0.1.0.dtd">
 <dar>
   <documents>
-    <document id="first-tutorial.ipynb" name="first-tutorial.ipynb" type="article" path="first-tutorial.ipynb.jats.xml" />
-    <document id="second-tutorial.ipynb" name="second-tutorial.ipynb" type="article" path="second-tutorial.ipynb.jats.xml" />
+    <document id="article-7e2aa8714de0743cf3e5f1fa7c8951840546080355c90487" name="first-tutorial.ipynb" type="article" path="first-tutorial.jats.xml" />
+    <document id="article-4637feabb71bbbc10c7523846c993a9b7a84d8e85e262a41" name="second-tutorial.ipynb" type="article" path="second-tutorial.jats.xml" />
   </documents>
   <assets/>
 </dar>
