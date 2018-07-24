@@ -1,35 +1,4 @@
-chooseCRANmirror(graphics=FALSE, ind=1) #selects a CRAN mirror
-
-#Writes a manifest to local folder which includes all packages necessary to run each script called in the r markdown
-cat('
-library(httr)
-library(tidyr)
-library(reshape2)
-library(pander)
-library(car)
-library(lsmeans)
-library(coin)
-library(MBESS)
-library(metafor)
-library(rjson)
-library(psychometric)
-',
-file = "manifest.R")
-
-#Creates a .checkpoint folder (in tempdir for this example)
-dir.create(file.path(tempdir(), ".checkpoint"), recursive = TRUE, showWarnings = FALSE)
-options(install.packages.compile.from.source = "no")
-
-#Creates a checkpoint which allows for installation of packages as they existed on CRAN at the snapshot date of 2017-10-19
-if (("checkpoint" %in% installed.packages()[, 1]) == F) {
-        install.packages("checkpoint")
-}
-
-#loads checkpoint
-library(checkpoint)
-checkpoint("2017-10-19", checkpointLocation = tempdir())
-#Checkpoint in markdown code found at: https://github.com/RevolutionAnalytics/checkpoint/blob/master/vignettes/archive/using-checkpoint-with-knitr.Rmd 
-
+.libPaths( c( .libPaths(), ".checkpoint/2017-10-19/lib/x86_64-pc-linux-gnu/3.4.4/") )
 
 RPCB_private_access <- "https://osf.io/mokeb/?view_only=756a4e87b872460d8d4ed25eae4d5150"
 #RPCB_private_access is an object that contains the private viewing link above or a private access token which is necessary to view and create scripts while this project is private. Upon publication, when the project is made public, a private access token or private link will no longer be necessary to render the rmd or view/access any of the scripts used in this Replication project.

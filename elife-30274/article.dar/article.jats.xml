@@ -180,7 +180,7 @@
       <p>This is the same experiment as in Figure 2. (<bold role="strong">A</bold>-<bold role="strong">C</bold>, <bold role="strong">E</bold>-<bold role="strong">G</bold>) Scatter plots of log2 transformed gene expression data for all genes analyzed at the indicated times on the y and x axes for both lots of serum. Active genes are blue, silent genes are red, and genes that are neither active or silent (expression was more than 0.5 transcript/cell and less than 1 transcript/cell at time 0 hr) are white. (<bold role="strong">D</bold>, <bold role="strong">H</bold>) Box and whisker plots showing gene expression changes (log2 ratio) between the indicated times for all genes analyzed for both lots of serum. Median represented as the line through the box and whiskers representing values within 1.5 IQR of the first and third quartile. Additional details for this experiment can be found at https://osf.io/fn2y4/.</p>
       <p><bold role="strong">Table 1. Confirmatory statistical tests.</bold></p>
       <code specific-use="cell"><named-content><alternatives>
-          <code specific-use="source" language="r" executable="yes">#: , include=FALSE
+        <code specific-use="source" language="r" executable="yes">#: , include=FALSE
 
 table1_active &lt;- data.frame(dat[c(1:5)]) #subsets on active genes
 table1_active &lt;- melt(table1_active,id.vars = c(&quot;Study&quot;,&quot;Label&quot;)) #melts on Study and Label Variables
@@ -212,7 +212,7 @@ table1 &lt;- table1[,c(6,2,1,3:5)]
       </named-content>
       </code>
       <code specific-use="cell"><named-content><alternatives>
-          <code specific-use="source" language="r" executable="yes">#: echo=F
+        <code specific-use="source" language="r" executable="yes">#: echo=F
 library(pander)
 pander(table1)</code>
       <code specific-use="output" language="json">{}</code>
@@ -222,7 +222,7 @@ pander(table1)</code>
       <p>These confirmatory statistical tests relate to the data presented in Figure 2. Wilcoxon signed-rank test, which treat the data as paired, were conducted for the original study (Lin et al., 2012) and this replication attempt (RP:CB). Uncorrected <italic>p</italic> values are reported with an <italic>a priori</italic> significance threshold of <monospace>r sub(&apos;^(-)?0[.]&apos;,&apos;\\1.&apos;,round(0.05/3, digits = 4))</monospace>. Sample sizes reported are based on the sample size used in the tests. Additional details for this experiment can be found at https://osf.io/fn2y4/.</p>
       <p><bold role="strong">Table 2. Exploratory statistical tests.</bold></p>
       <code specific-use="cell"><named-content><alternatives>
-          <code specific-use="source" language="r" executable="yes">#: , include=FALSE
+        <code specific-use="source" language="r" executable="yes">#: , include=FALSE
 
 #Subsets on only Wilcoxon Rank-Sum Tests
 WilcoxonRS &lt;- dat[c(1,9:12)]
@@ -255,7 +255,7 @@ table2 &lt;- table2[,c(6,2,1,3:5)]
       </named-content>
       </code>
       <code specific-use="cell"><named-content><alternatives>
-          <code specific-use="source" language="r" executable="yes">#: echo=F
+        <code specific-use="source" language="r" executable="yes">#: echo=F
 library(pander)
 pander(table2)</code>
       <code specific-use="output" language="json">{}</code>
@@ -265,7 +265,7 @@ pander(table2)</code>
       <p>These exploratory statistical tests relate to the data presented in Figure 2. Wilcoxon rank sum tests, which treat the data as unpaired, were conducted for the original study (Lin et al., 2012) and this replication attempt (RP:CB). Uncorrected <italic>p</italic> values are reported. Sample sizes reported are based on treating genes as unpaired between conditions. Additional details for this experiment can be found at https://osf.io/fn2y4/.</p>
       <p><bold role="strong">Table 3. Exploratory statistical tests.</bold></p>
       <code specific-use="cell"><named-content><alternatives>
-          <code specific-use="source" language="r" executable="yes">#: ,include=FALSE
+        <code specific-use="source" language="r" executable="yes">#: ,include=FALSE
 
 diff &lt;- dat[c(1,16:19)]
 
@@ -292,7 +292,7 @@ table3 &lt;- table3[,c(2,1,3:5)]
       </named-content>
       </code>
       <code specific-use="cell"><named-content><alternatives>
-          <code specific-use="source" language="r" executable="yes">#: echo=F
+        <code specific-use="source" language="r" executable="yes">#: echo=F
 pander(table3)</code>
       <code specific-use="output" language="json">{}</code>
       </alternatives>
