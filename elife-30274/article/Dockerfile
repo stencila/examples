@@ -1,14 +1,9 @@
-# Use the stencila/base-r-binder image which has the 
-# Stencila for R (to execute R code cells) and 
-# Jupyter (so that Binder can build and launch the image)
+# Use the stencila/base-r image which has the 
+# Stencila for R (to execute R code cells)
 #
 # Use the version for R 3.4 which was the latest version of
-# R available at the time of the replication study (2017-10-19)
-FROM stencila/base-r-binder:3.4
-
-# Switch to root user to install system packages
-# required by the R packages required by the article
-USER root
+# R available at the time of Lewis et al's replication study (2017-10-19)
+FROM stencila/core-r:3.4
 
 RUN apt-get update \
  && apt-get install -y \
@@ -27,7 +22,7 @@ WORKDIR article
 ADD packages.R .
 RUN Rscript packages.R
 
-# Fetch the article data and acillary code
+# Fetch the article data and ancillary code
 ADD data.R .
 RUN Rscript data.R
 
