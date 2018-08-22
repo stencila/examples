@@ -8,7 +8,14 @@ The full [article is available on the eLife website](https://elifesciences.org/a
 
 This example addresses the use case of a researcher who already uses RMarkdown and who wants to keep their work in that format as long as possible towards the final publication (i.e avoiding conversion to intermediate formats like `.docx` or `.pdf`)
 
-The publication is available in [RMarkdown format](https://osf.io/vdrsh/download) and saved here as [`Replication_Study_48.Rmd`](https://github.com/stencila/examples/blob/master/elife-30274/Replication_Study_48.Rmd). Some pre-processing of the RMarkdown was done:
+- [`Replication_Study_48.Rmd`](https://github.com/stencila/examples/blob/master/elife-30274/Replication_Study_48.Rmd): the main RMarkdown [file](https://osf.io/vdrsh). 
+
+- [`Study_48_Figure_1B.R`](https://github.com/stencila/examples/blob/master/elife-30274/Study_48_Figure_1B.R): a R [script](https://osf.io/r9276/) for figure 1B
+
+- [`Study_48_Figure_2&Figure_2_Figure_Supplement_1.R`](https://github.com/stencila/examples/blob/master/elife-30274/Study_48_Figure_2&Figure_2_Figure_Supplement_1.R): a R [script](https://osf.io/egvz9/) for figure 2.
+
+
+Some pre-processing of the RMarkdown was done:
 
 1. Deleted the YAML header which included `knitr` and `pandoc` processing instructions e.g. `fontsize: 12pt`.
 
