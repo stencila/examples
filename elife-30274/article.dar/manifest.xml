@@ -1,15 +1,11 @@
 <!DOCTYPE sheet PUBLIC "DarManifest 0.1.0" "http://darformat.org/DarManifest-0.1.0.dtd">
 <dar>
   <documents>
-    <document id="undefined-3c81665916a3e89d4741bfd73eb3162099418bfa08eda878" name=".checkpoint" type="undefined" path=".checkpoint" />
-    <document id="undefined-34019e74b5036707924f359f4dd477d16f1b6ecff9bb1bea" name="Dockerfile" type="undefined" path="Dockerfile" />
-    <document id="sheet-dc599cefeead982dbd33243e7e1b10c34605938ce40afbd8" name="Study_48_Figure_2_Supplemental_Tables.csv" type="sheet" path="Study_48_Figure_2_Supplemental_Tables.sheet.xml" />
-    <document id="sheet-587df49a436e1c5d2f041525ed6b9a33e4676e24d7ed8faa" name="Study_48_Meta_Analysis.csv" type="sheet" path="Study_48_Meta_Analysis.sheet.xml" />
-    <document id="sheet-39dbf2bba218b83acbd14f100dc8625f5d468df19dd6b0f3" name="Study_48_Protocol_2_Data.csv" type="sheet" path="Study_48_Protocol_2_Data.sheet.xml" />
-    <document id="sheet-a5cf80dae617519317c0b59f2d716f0d87056e0abbcd5578" name="Study_48_Protocol_2_Original_NanoDrop_Data.csv" type="sheet" path="Study_48_Protocol_2_Original_NanoDrop_Data.sheet.xml" />
-    <document id="article-c84df098db9f418ceb5d535375d2bdf25fee45f99539acf0" name="article.Rmd" type="article" path="article.jats.xml" />
-    <document id="undefined-3b6a58fbf112674fcdd05544f0d8cfa2e56c00418800b82f" name="data.R" type="undefined" path="data.R" />
-    <document id="undefined-bc587cc321a0e90616e5b31192ae310d1d247f2e1046383e" name="packages.R" type="undefined" path="packages.R" />
+    <document id="undefined-c1a3c57bf7554b32eb7a8979d25708e0dc9ba7e26b98f643" name="Dockerfile" type="undefined" path="Dockerfile" />
+    <document id="article-e7371813c3eaecdf7ebfdfd75d1a83f4616fca9c38ba9ce0" name="article.Rmd" type="article" path="article.jats.xml" />
+    <document id="undefined-cf4f9d7b11d387821d208629a301d170682345bf878265c3" name="data.R" type="undefined" path="data.R" />
+    <document id="undefined-511cb30eea8268a2eec7b61bf06770898dc9847994263c17" name="packages.R" type="undefined" path="packages.R" />
+    <document id="undefined-49b64e0a555bc5303862d34aaf738e51e134a76652f42d1e" name="references.bibtex" type="undefined" path="references.bibtex" />
   </documents>
   <assets/>
 </dar>
