@@ -13,7 +13,7 @@
     </article-meta>
   </front>
   <body id="body-1">
-    <p id="p-8a60a1f08788874daef44a6310b4f1f1"> Currently, in the desktop we don't have a way of changing the working directory of excution contexts</p>
+    <p id="p-8a60a1f08788874daef44a6310b4f1f1">Currently, in the desktop we don't have a way of changing the working directory of excution contexts</p>
     <code id="cell-d691880c4b62e7be6b9e96e75574df4d" specific-use="cell">
       <named-content>
         <alternatives>
@@ -22,7 +22,7 @@
         </alternatives>
       </named-content>
     </code>
-    <p id="p-09de69104c961993adfd3579d69a13c0">To require a package in the you may need to specify the complete path. Here we require d3 so we can use it's csv parsing function to read in some data:</p>
+    <p id="p-09de69104c961993adfd3579d69a13c0">To require a package in the you may need to specify the complete path. In  Here we require d3 so we can use it's csv parsing function to read in some data (from https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv).</p>
     <code id="cell-f3ba589bb5f569d0a607d1844d111842" specific-use="cell">
       <named-content>
         <alternatives>
@@ -53,17 +53,6 @@ let array_objects = d3.csvParse(fs.readFileSync('titanic.csv', 'utf8'))]]></code
       </named-content>
     </code>
     <p id="p-a07128da78d2482af52243a43eea9b36">The error "cannot modify data_table because it's a view" is a bug and requires you to rename the data table or restart the desktop.</p>
-    <p id="p-7c791e6734527375acf30bc710df390c" />
-    <p id="p-6df3b44aa72dbbde91fb8fb1594b6cba" />
-    <p id="p-df3290a03af755f3f66ba79c1f19b6ba" />
-    <p id="p-a7728fcc8a987b2a727791546ecfbbdd" />
-    <p id="p-134bd15f3edd62d6337f15fda066796f" />
-    <p id="p-c7a86aa1738b35f5f0353105c10f7916" />
-    <p id="p-1006744e2dc741a03c8e988c6e5a109c" />
-    <p id="p-4e7d6c2d50c6fa7ec60a38c5aed3479b" />
-    <p id="p-05fe94ee943f3aa543fa3871e34c0957" />
-    <p id="p-10b67294bd12ae44ae00f6a4428b3b4c" />
-    <p id="p-cf390cd660f7d5c8bb6bdf168d4b85a2" />
   </body>
   <back id="back-1">
     <ref-list id="ref-list-1" />
