@@ -1,4 +1,5 @@
 # Dockerfile for running eLife 30274 example on Binder
+# See https://mybinder.readthedocs.io/en/latest/tutorials/dockerfile.html
 
 # Base image with Stencila R and other package installed
 FROM stencila/examples-elife-30274@sha256:fa2b5e4260426d495761983f51b95791f5f4a70f2a2a8903b00bc3d075221172
@@ -20,8 +21,13 @@ RUN pip3 install --no-cache-dir \
  && jupyter serverextension enable --sys-prefix --py nbstencilaproxy
 
 # Add a non-root user
-RUN useradd --create-home --uid 1001 jovyan
-USER jovyan
+ENV NB_USER jovyan
+ENV NB_UID 1000
+ENV HOME /home/${NB_USER}
+RUN adduser --disabled-password \
+    --gecos "Default user" \
+    --uid ${NB_UID} \
+    ${NB_USER}
 
 # Register the Stencila package as that user so that R 
 # execution contexts are available
