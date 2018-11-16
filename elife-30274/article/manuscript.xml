@@ -1097,7 +1097,7 @@ figure_2
           <named-content>
             <alternatives>
               <code specific-use="source" language="r"><![CDATA[# Run the external script to generate figure-3.png
-source('figure-3.R')]]></code>
+source('article/figure-3.R')]]></code>
               <code specific-use="output" language="json"><![CDATA[]]></code>
             </alternatives>
           </named-content>
