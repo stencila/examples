@@ -6,6 +6,9 @@ This example replicates the paper:
 
 The full [article is available on the eLife website](https://elifesciences.org/articles/30274) and there is an Open Science Framework [folder containing code and data](https://osf.io/mokeb/).
 
+Open it on Binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/stencila/examples/elife-30274-binder?urlpath=stencila)
+
+
 This example addresses the use case of a researcher who already uses RMarkdown and who wants to keep their work in that format as long as possible towards the final publication (i.e avoiding conversion to intermediate formats like `.docx` or `.pdf`)
 
 - [`Replication_Study_48.Rmd`](https://github.com/stencila/examples/blob/master/elife-30274/Replication_Study_48.Rmd): the main RMarkdown [file](https://osf.io/vdrsh). 
@@ -38,6 +41,5 @@ There are still a few more steps to complete:
 
 ![](screenshot-1.png)
 
-The `elife-30274-binder` branch allows this example to be opened in Binder.
 
-
+The `elife-30274-binder` branch allows this example to be opened in Binder. Use `make binder-branch` to update it from `master`.
