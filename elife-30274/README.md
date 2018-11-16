@@ -37,3 +37,7 @@ There are still a few more steps to complete:
 
 
 ![](screenshot-1.png)
+
+The `elife-30274-binder` branch allows this example to be opened in Binder.
+
+
