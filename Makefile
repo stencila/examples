@@ -17,7 +17,9 @@ convert:
 	stencila convert article article.dar
 
 binder-branch:
-	git checkout elife-30274-binder && \
-	git checkout master -- elife-30274 && \
-	git mv elife-30274/* . && \
+	git checkout elife-30274-binder
+	git rm -rf .
+	git checkout master -- elife-30274
+	git mv elife-30274/* .
 	git commit -m 'Update the Binder deployment branch'
+	git checkout master
