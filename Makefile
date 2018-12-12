@@ -19,4 +19,5 @@ convert:
 binder-branch:
 	git checkout elife-30274-binder && \
 	git checkout master -- elife-30274 && \
-	git commit -m 'Update the Binder deployment branch'
+	git commit -m 'Update the Binder deployment branch' && \
+	git push
