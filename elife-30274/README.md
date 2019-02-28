@@ -1,4 +1,4 @@
-## Replicating a replication study
+## Reproducing a replication study
 
 This example replicates the paper:
 
