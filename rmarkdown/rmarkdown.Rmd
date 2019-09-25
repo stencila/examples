@@ -1,0 +1,27 @@
+---
+title: Writing reproducible articles with R Markdown and Stencila
+abstract: How to write
+author:
+  - Nokome Bentley
+output: html_notebook
+---
+
+# Preface
+
+This article describes how to write a reproducible research using R Markdown and Stencila. It is part of a series of "self-documenting" articles, each written in a particular format, describing how to author articles in the format
+
+# Introduction
+
+# Code chunks
+
+```{r}
+randoms <- rnorm(1000)
+```
+
+```{r}
+hist(randoms, breaks=30, col="grey", main="")
+```
+
+# Inline code chunks
+
+In R Markdown you can also inline "inline" code chunks within paragraphs and other text content. For example, here is the mean of the `randoms` variable that we assigned earlier: `r mean(randoms)`. In Stencila, we call these `CodeExpression`s, because they are intended to display a calculated value, and shouldn't be used for statements, such as assigning a variable.
