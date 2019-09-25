@@ -1,6 +1,7 @@
 ---
 title: Writing reproducible articles with R Markdown and Stencila
-abstract: How to write
+description: |
+    R Markdown is a popular format for reproducible research. This article provides a guide to how to write, and collaborate on, a reproducible research article using R Markdown and Stencila. As well as describing the basics of embedding R code in your article, it covers how to include meta-data (such as author names and affiliations), citations and references. Finally, we discuss how you can preview your article and convert it to other formats using Stencila. 
 author:
   - Nokome Bentley
 output: html_notebook
@@ -8,15 +9,37 @@ output: html_notebook
 
 # Preface
 
-This article describes how to write a reproducible research using R Markdown and Stencila. It is part of a series of "self-documenting" articles, each written in a particular format, describing how to author articles in the format
+This is part of a series of "self-documenting" example articles, each written in a particular format, describing how to author reproducibles in that format. The canonical source for this article is [`rmarkdown.Rmd`](https://github.com/stencila/examples/tree/master/rmarkdown/rmarkdown.Rmd) on Github where there is also a rendered version as a R Notebook, [`rmarkdown.nb.html`](https://github.com/stencila/examples/tree/master/rmarkdown/rmarkdown.nb.html). If you are not already, you can open this R Notebook on Stencila using [this link](https://hub.stenci.la/open/https://github.com/stencila/examples/tree/master/rmarkdown/rmarkdown.nb.html).
+
+Other articles in this series for other formats / sites:
+
+- [Jupyter Notebooks](https://hub.stenci.la/open/https://github.com/stencila/examples/tree/master/jupyter/jupyter.ipynb)
+- [Google Docs](https://hub.stenci.la/open/https://docs.google.com/document/d/1BW6MubIyDirCGW9Wq-tSqCma8pioxBI6VpeLyXn5mZA)
+- [HackMD](https://hub.stenci.la/open/https://hackmd.io/RaFYCFoyTlODFxz5hPevLw)
+
+Please note that this example is a work in progress.
 
 # Introduction
 
+[R Markdown](https://rmarkdown.rstudio.com/) is a popular format for writing reprodubile documents. [Markdown](https://daringfireball.net/projects/markdown/syntax) is a simple text format, which, in the words of it's creator, is "intended to be as easy-to-read and easy-to-write as is feasible". R Markdown extends Markdown with some custom syntax for embedding executable R code.
+
+There are many resources available for how to use R Markdown for reproducible research, inlcuding:
+
+- Chris Hartgerink (2017) _Composing reproducible manuscripts using R Markdown_ https://elifesciences.org/labs/cad57bcf/composing-reproducible-manuscripts-using-r-markdown
+
+- Daniel Nüst, Vicky Steeves, Rémi Rampin, Markus Konkol, Edzer Pebesma (2018)_Writing reprocible geoscience papers using R Markdown, Docker, and GitLab_ https://vickysteeves.gitlab.io/repro-papers/index.html
+
+- Paul Bauer (2018) _Writing a Reproducible Paper in R Markdown_ https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3175518
+
 # Code chunks
+
+At the heart of R Markdown are "code chunks". Code chunks can produce outputs, or they can be used to execute arbitrary R code. For example, here we assign a variable called `randoms` which will be an array of 1000 random numbers sampled from a normal distribution:
 
 ```{r}
 randoms <- rnorm(1000)
 ```
+
+When you assign a variable in a code chunk you can reuse it in another chunk, later in the document. For example, we can plot the frequency distribution of the random numbers we assigned to the `randoms` variable earlier:
 
 ```{r}
 hist(randoms, breaks=30, col="grey", main="")
