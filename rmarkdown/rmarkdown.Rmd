@@ -9,7 +9,7 @@ output: html_notebook
 
 # Preface
 
-This is part of a series of "self-documenting" example articles, each written in a particular format, describing how to author reproducibles in that format. The canonical source for this article is [`rmarkdown.Rmd`](https://github.com/stencila/examples/tree/master/rmarkdown/rmarkdown.Rmd) on Github where there is also a rendered version as a R Notebook, [`rmarkdown.nb.html`](https://github.com/stencila/examples/tree/master/rmarkdown/rmarkdown.nb.html). If you are not already, you can open this R Notebook on Stencila using [this link](https://hub.stenci.la/open/https://github.com/stencila/examples/tree/master/rmarkdown/rmarkdown.nb.html).
+This is part of a series of "self-documenting" example articles, each written in a particular format, describing how to author reproducible articles in that format. The canonical source for this article is [`rmarkdown.Rmd`](https://github.com/stencila/examples/tree/master/rmarkdown/rmarkdown.Rmd) on Github where there is also a rendered version as a R Notebook, [`rmarkdown.nb.html`](https://github.com/stencila/examples/tree/master/rmarkdown/rmarkdown.nb.html). If you are not already, you can open this R Notebook on Stencila using [this link](https://hub.stenci.la/open/https://github.com/stencila/examples/tree/master/rmarkdown/rmarkdown.nb.html).
 
 Other articles in this series for other formats / sites:
 
