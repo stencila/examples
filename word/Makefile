@@ -1,2 +1,2 @@
-word.md.docx:
+word.docx:
 	stencila convert word.md word.docx

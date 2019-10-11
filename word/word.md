@@ -1,7 +1,7 @@
 ---
 title: Writing reproducible articles with Word and Stencila
 description: |
-    Word (docx) files are often seen as the last-stage in a one way review process. They are easy for reviewers to use and make changes to, but it is is manual process for reviewers to integrate their comments back to the source file. This article is an example of a Word file that has been generated using Stencila's Encoda. It contains code and their outputs, embedded as reproducible PNGs. It can be converted back to a source format to reveal and change the code.
+    Word (docx) files are often seen as the last-stage in a one way review process. They are easy for reviewers to use and make changes to, but it is a manual process for reviewers to integrate their comments back to the source file. This article is an example of a Word file that has been generated using Stencila's Encoda. It contains code and their outputs, embedded as reproducible PNGs. It can be converted back to a source format to reveal and change the code.
 authors:
   - type: Person
     first-name: Ben
@@ -16,7 +16,7 @@ output: docx
 
 # Preface
 
-This is part of a series of "self-documenting" example articles, each written in a particular format, describing how to author reproducible articles in that format. The canonical source for this article is [word.docx](https://github.com/stencila/examples/tree/master/word/word.docx) on Github. You can open this article on Stencila using [this link](https://hub.stenci.la/open/https://github.com/stencila/examples/tree/master/word/word.docx) (if you aren't aleady :)
+This is part of a series of "self-documenting" example articles, each written in a particular format, describing how to author reproducible articles in that format. The canonical source for this article is [word.docx](https://github.com/stencila/examples/tree/master/word/word.docx) on Github. You can open this article on Stencila using [this link](https://hub.stenci.la/open/https://github.com/stencila/examples/tree/master/word/word.docx) (if you aren't already :)
 
 Other articles in this series for other formats / sites:
 - [RMarkdown](https://hub.stenci.la/open/https://github.com/stencila/examples/tree/master/rmarkdown/rmarkdown.Rmd)
@@ -26,7 +26,7 @@ Other articles in this series for other formats / sites:
 
 # Introduction
 
-Word files (docx) are usually seen as the final output of a reproducible research document. This one-way flow can slow the review-iteration process: researchers manually create Word versions of their research scripts, have them reviewed, and then incorporate the changes back to their source files manually. Using Stencila's Encoda, lossless conversion between docx and source documents is possible (with the automatic use of rPNGs). Reviewers can make changes in Word and then researchers can easily convert back and forth to source documents automatically.
+Word files (`.docx`) are usually seen as the final output of a reproducible research document. This one-way flow can slow the review-iteration process: researchers manually create Word versions of their research scripts, have them reviewed, and then incorporate the changes back to their source files manually. Using Stencila's Encoda, lossless conversion between docx and source documents is possible (with the automatic use of rPNGs). Reviewers can make changes in Word and then researchers can easily convert back and forth to source documents automatically.
 
 # Code Chunks
 
@@ -67,12 +67,13 @@ plt.scatter(x, y, s=area, c=colors, alpha=0.5)
 
 # Code Expressions
 
-CodeExpressions are rendered inline (this simple expression is evaluating 2+2): `2+2`{type=expr lang=python output=4}
+`CodeExpressions` are rendered inline (this simple expression is evaluating 2+2): `2+2`{type=expr lang=python output=4}
 
 Try converting this document back to another format with the Stencila CLI tool or [Stencila Open](https://hub.stenci.la/open), and you will reveal the source code that generated these outputs.
 
 # Lists
-Also supported are other features like Lists
+
+Also supported are other features like lists
 
 1. With
 2. Numbered
