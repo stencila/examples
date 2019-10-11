@@ -10,7 +10,12 @@ description: |
 
 ## Preface
 
-This is part of a series of "self-documenting" example articles, each written in a particular format, describing how to author structured, reproducible articles in that format. The canonical source for this article is [this](https://hackmd.io/RaFYCFoyTlODFxz5hPevLw) Markdown document on HackMD. If you are not already, you can open this Markdown document on Stencila using this link: https://hub.stenci.la/open/https://hackmd.io/RaFYCFoyTlODFxz5hPevLw.
+This is part of a series of "self-documenting" example articles, each written in a particular format, describing how to author structured, reproducible articles in that format. 
+
+The canonical source for this article is [this](https://hackmd.io/RaFYCFoyTlODFxz5hPevLw) Markdown document on HackMD. The content is also synced to [this file](https://github.com/stencila/examples/tree/master/markdown) on Github. If you are not already, you can open this Markdown document on Stencila using this button:
+
+[![](https://img.shields.io/badge/open%20on-stencila-brightgreen)](https://hub.stenci.la/open/https://hackmd.io/RaFYCFoyTlODFxz5hPevLw)
+
 
 Other articles in this series for other formats / sites:
 
@@ -41,7 +46,7 @@ Whilst there has always been support for inline code elements, and code blocks, 
 
 The inclusion of outputs along with the code allow for readers to read manuscripts on the go, work without having to manage project environments and dependencies, and even commit files to Git to take advantage of commit diffs and history.
 
-## CodeBlocks
+### CodeBlocks
 
 Native markdown code blocks are written by surrounding the source code with three backticks, also known as grave accent.
 
@@ -103,7 +108,7 @@ CodeExpressions are inline variants of CodeChunks, allowing you to include compu
 
 An example of a CodeExpression follows, where we want to include the answer, `return 6 * 7`{type=expr lang=js output=[42]}, to life and everything else.
 
-Unlike CodeChunks, CodeExpressions can only have a single resulting output.
+Unlike `CodeChunk`s, `CodeExpression`s can only have a single resulting output.
 
 ## Extensions
 
