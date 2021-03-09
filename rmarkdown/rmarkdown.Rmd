@@ -1,7 +1,7 @@
 ---
-title: Writing reproducible articles with R Markdown and Stencila
-description: |
-    R Markdown is a popular format for reproducible research. This article provides a guide to how to write, and collaborate on, a reproducible research article using R Markdown and Stencila. As well as describing the basics of embedding R code in your article, it covers how to include meta-data (such as author names and affiliations), citations and references. Finally, we discuss how you can preview your article and convert it to other formats using Stencila. 
+title: 'R Markdown Reference Project'
+output: html_notebook
+bibliography: myCitations.bib
 authors:
   - type: Person
     first-name: Nokome
@@ -11,48 +11,150 @@ authors:
       name: Stencila
       url: https://stenci.la
       address: Kaikoura, New Zealand
-  - Josiah Carberry (https://orcid.org/0000-0002-1825-0097)
-output: html_notebook
+  - 'Alexander Ketchakmadze <alexander@stenci.la> (https://stenci.la)'
 ---
-
-# Preface
-
-This is part of a series of "self-documenting" example articles, each written in a particular format, describing how to author reproducible articles in that format. The canonical source for this article is [`rmarkdown.Rmd`](https://github.com/stencila/examples/tree/master/rmarkdown/rmarkdown.Rmd) on Github where there is also a rendered version as a R Notebook, [`rmarkdown.nb.html`](https://github.com/stencila/examples/tree/master/rmarkdown/rmarkdown.nb.html). If you are not already, you can open this R Notebook on Stencila using [this link](https://hub.stenci.la/open/https://github.com/stencila/examples/tree/master/rmarkdown/rmarkdown.nb.html).
-
-Other articles in this series for other formats / sites:
-
-- [Jupyter Notebooks](https://hub.stenci.la/open/https://github.com/stencila/examples/tree/master/jupyter/jupyter.ipynb)
-- [Google Docs](https://hub.stenci.la/open/https://docs.google.com/document/d/1BW6MubIyDirCGW9Wq-tSqCma8pioxBI6VpeLyXn5mZA)
-- [HackMD](https://hub.stenci.la/open/https://hackmd.io/RaFYCFoyTlODFxz5hPevLw)
-
-Please note that this example is a work in progress.
 
 # Introduction
 
-[R Markdown](https://rmarkdown.rstudio.com/) is a popular format for writing reprodubile documents. [Markdown](https://daringfireball.net/projects/markdown/syntax) is a simple text format, which, in the words of it's creator, is "intended to be as easy-to-read and easy-to-write as is feasible". R Markdown extends Markdown with some custom syntax for embedding executable R code.
+This document is primarily intended to be used as a syntax reference for authoring R Markdown files for sharing
+reproducible articles on Stencila. Please ensure you’re viewing the [raw RMd file](https://hub.stenci.la/stencila/reference-r-markdown/files/), and not the converted HTML file.
 
-There are many resources available for how to use R Markdown for reproducible research, inlcuding:
+If you’re looking for material on how to use R Markdown for reproducible research, we recommend starting with the
+following links:
 
-- Chris Hartgerink (2017) _Composing reproducible manuscripts using R Markdown_ https://elifesciences.org/labs/cad57bcf/composing-reproducible-manuscripts-using-r-markdown
+- Chris Hartgerink (2017) _Composing reproducible manuscripts using R Markdown_
+  https://elifesciences.org/labs/cad57bcf/composing-reproducible-manuscripts-using-r-markdown
+- Daniel Nüst, Vicky Steeves, Rémi Rampin, Markus Konkol, Edzer Pebesma (2018)_Writing reprocible geoscience papers
+  using R Markdown, Docker, and GitLab_ https://vickysteeves.gitlab.io/repro-papers/index.html
+- Paul Bauer (2018) _Writing a Reproducible Paper in R Markdown_
+  https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3175518
 
-- Daniel Nüst, Vicky Steeves, Rémi Rampin, Markus Konkol, Edzer Pebesma (2018)_Writing reprocible geoscience papers using R Markdown, Docker, and GitLab_ https://vickysteeves.gitlab.io/repro-papers/index.html
+## Project Assets
 
-- Paul Bauer (2018) _Writing a Reproducible Paper in R Markdown_ https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3175518
+You can refer to any of you project files using relative paths, both as markdown assets such as the photo below,
+and as data sources inside your code blocks.
 
-# Code chunks
+[![Photo by Valentin Petkov](./redPandas.png)](https://unsplash.com/photos/loL9nnBK-fE)
 
-At the heart of R Markdown are "code chunks". Code chunks can produce outputs, or they can be used to execute arbitrary R code. For example, here we assign a variable called `randoms` which will be an array of 1000 random numbers sampled from a normal distribution:
+---
+
+## Code chunks
+
+### The basics
+
+At the heart of R Markdown are "code chunks". Code chunks can produce outputs, or they can be used to execute arbitrary
+R code. For example, here we assign a variable called `randoms` which will be an array of 1000 random numbers sampled
+from a normal distribution:
 
 ```{r}
 randoms <- rnorm(1000)
 ```
 
-When you assign a variable in a code chunk you can reuse it in another chunk, later in the document. For example, we can plot the frequency distribution of the random numbers we assigned to the `randoms` variable earlier:
+When you assign a variable in a code chunk you can reuse it in another chunk, later in the document. For example, we can
+plot the frequency distribution of the random numbers we assigned to the `randoms` variable earlier:
 
 ```{r}
 hist(randoms, breaks=30, col="grey", main="")
 ```
 
-# Inline code chunks
+### Adding figure and table captions
 
-In R Markdown you can also inline "inline" code chunks within paragraphs and other text content. For example, here is the mean of the `randoms` variable that we assigned earlier: `r mean(randoms)`. In Stencila, we call these `CodeExpression`s, because they are intended to display a calculated value, and shouldn't be used for statements, such as assigning a variable.
+R Markdown allows you to specify "options" for code chunks. One such option is `fig.cap` which allows you to specify a
+figure caption:
+
+```{r fig.cap="My figure"}
+plot(randoms)
+```
+
+#### Longer captions
+
+The above method is OK for short captions, but when you have longer captions you will probably want to use
+[Bookdown](https://bookdown.org/home/) style text references e.g.
+
+```{r fig.cap="(ref:figure3)"}
+plot(randoms)
+```
+
+(ref:figure3) This is a slightly longer caption for my figure including some **strong** emphasis.
+
+#### Complex captions
+
+Bookdown style text references are good for longer, single paragraph captions. However, for more structured captions
+having a title and paragraph as is often found in academic journals we suggest that you use a code chunk block
+extension. e.g.
+
+chunk: Figure 3
+:::
+
+#### The title of my plot
+
+A paragraph for my figure including some **strong** emphasis.
+
+```{r}
+plot(randoms)
+```
+
+:::
+{#fig3}
+
+---
+
+## Inline code chunks
+
+In R Markdown you can also inline code chunks within paragraphs and other text content.
+For example, here is the mean of the `randoms` variable that we assigned earlier: `r mean(randoms)`.
+
+In Stencila, we call these `CodeExpression`s, because they are intended to display a single calculated value, and shouldn't be
+used for statements, such as assigning a variable.
+
+---
+
+## References
+
+When creating Code Chunks, you can assign them an identifier which can be used as a reference from other places. For
+example [this links to the code chunk above](#fig3).
+
+### Syntax
+
+````md
+chunk: Figure Title here
+:::
+
+#### This is the caption title
+
+Some descriptive paragraph.
+
+```{r}
+# code goes here
+```
+
+:::
+{#unique-identifier} # <-- ID to use when referring to this figure
+````
+
+## Citations
+
+Stencila automatically parses a [BibTeX](http://www.bibtex.org) file if one is set under the `bibliography` key in
+the file's front-matter. The references will be automatically parsed and appended at the end of the document under a
+_References_ heading.
+
+You can refer to items in the bibliography file be prefixing the item's identifier with an `@` symbol.
+This will automatically create a formatted citation. The citation style can vary depending on the output file format,
+as well as your [chosen theme](http://help.stenci.la/en/articles/4330629-project-settings#theme).
+
+### Example
+
+> _Twenty Thousand Leagues Under the Seas_ (@julesverne1870) is a great read.
+
+However if you don’t want to create a formal inline citation, and simply link to the References section at the
+end of the document, you can use the same reference identifier but use a `#` symbol instead of a `@`.
+
+> [_Twenty Thousand Leagues Under the Seas_ by Jules Verne](#julesverne1870) is a great read.
+
+---
+
+## Feedback welcome
+
+This document is continuously being refined based on your feedback, so please reach out to us at
+[hello@stenci.la](mailto:hello@stenci.la) if you have questions or suggestions, would like to see a section added to
+this document, or if you find something unclear. We’d love to hear from you!
