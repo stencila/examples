@@ -59,6 +59,7 @@
 \usepackage{listings} % for lstlisting environment
 \usepackage{minted} % for YAML environment
 \usepackage{xcolor} % for defining colors
+\usepackage{caption} % for \captionof{}
 \usepackage{graphicx}
 
 % --- Customization --- %
@@ -93,7 +94,9 @@ showtabs=false,
 tabsize=4,
 frame=single
 }
-    
+
+\lstdefinestyle{pythoncustomstyle-exec}{style=pythoncustomstyle}
+
 % --- Content --- %
 
 \begin{document}
@@ -112,7 +115,6 @@ frame=single
 \affil[4]{Trinity College, University of Cambridge, Cambridge, United Kingdom}
 
 \maketitle
-
 \begin{abstract}
 In the abstract you will summarize the motivation, results and
 conclusions of the manuscript.
@@ -144,7 +146,7 @@ The attentive reader will have noticed that at the top of this
 containing YAML code:
 
 {\singlespace
-\begin{minted}[gobble=0,frame=single,linenos]{yaml}
+\begin{minted}[gobble=0, frame=single, linenos]{yaml}
 type: Article
 title: LaTeX Reference Project
 authors:
@@ -191,6 +193,7 @@ authors:
          type: Organization
          name: University of Cambridge
 \end{minted}
+\captionof{lstlisting}{Bla}
 }
 
 \noindent (The box above was rendered with the \LaTeX 's \texttt{minted}
@@ -261,19 +264,61 @@ figures they want to show, and (ii) execute arbitrary computations
 required for generating results.
 The main difference between code chunks and static code blocks (e.g.,
 the YAML block above) is that code chunks are executable.
-Code chunks are specified by adding \texttt{\% begin exec} right
-before the code block, and \texttt{\% end exec} right after.
-(In \LaTeX, these short strings will not appear in the
-compiled document.)
+Code chunks are specified either by using (i) the ``listings'' \LaTeX
+package, or (ii) the ``minted'' \LaTeX package.
+
+\subsubsection*{Using \LaTeX 's ``listings'' package}
+
+Here, we must add a customized \texttt{lststyle}'s to the
+\texttt{.tex} file preamble, either on top of user-specified custom
+styles, or on top of default styles.
+For example, in the preamble of the current \texttt{.tex} file we
+specify the custom Python style `pythoncustomstyle':\\
+
+\begin{lstlisting}[language=tex, frame=single]
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\lstdefinestyle{pythoncustomstyle}{  
+commentstyle=\color{codegreen},
+keywordstyle=\color{magenta},
+numberstyle=\tiny\color{codegray},
+stringstyle=\color{codepurple},
+basicstyle=\ttfamily\footnotesize,
+breakatwhitespace=false,         
+breaklines=true,                 
+captionpos=b,                    
+keepspaces=true,                 
+numbers=left,                    
+numbersep=5pt,                  
+showspaces=false,                
+showstringspaces=false,
+showtabs=false,                  
+tabsize=4,
+frame=single
+}
+\end{lstlisting}
+
+\noindent \\which is used for static Python code blocks.
+If we want executable Python code chunks, we need to create another
+\texttt{lststyle} by adding the following to the preamble:\\
+
+\begin{lstlisting}[language=tex, frame=single, breaklines=true]
+\lstdefinestyle{pythoncustomstyle-exec}{style=pythoncustomstyle}
+\end{lstlisting}
+
+\subsubsection*{Using \LaTeX 's ``minted'' package}
+
+When using ``minted'', we need to add \texttt{\% begin
+  exec} before the code chunk, and \texttt{\% end
+  exec} after it (see below).
 
 \subsubsection*{Python code chunks}
 
-The following code chunk is written in Python and
-executed by the Stencila engine:\\
+The following code chunk (using the ``listings'' package) is written
+in Python and executed by the Stencila engine:\\
 
-\noindent \texttt{\% begin exec}
-% begin exec
-\begin{lstlisting}[language=Python, style=pythoncustomstyle,
+\begin{lstlisting}[language=Python, style=pythoncustomstyle-exec,
   caption={Customizing some aspects of plotting before it is actually
     done.}]
 import numpy as np
@@ -285,16 +330,12 @@ plt.rcParams.update({
     "font.serif": ["Palatino"],
 })
 \end{lstlisting}
-\noindent \texttt{\% end exec}\\
-% end exec
 
 Note that the Python code above is not only executed, but the state of
 variables is saved and conserved for future Python code chunks.
 For example, if we now add another code chunk, it inherits whatever
 was executed previously:\\
 
-\noindent \texttt{\% begin exec}
-% begin exec
 \begin{lstlisting}[language=Python, style=pythoncustomstyle,
   caption={Histogram of 1,000 random draws from $\mathcal{N}$(0.0, 1.0).}]
 mu = 0.0
@@ -314,8 +355,6 @@ ax.spines['right'].set_visible(False)
 plt.title(r'Histogram of 1,000 draws from $\mathcal{N}$(0.0, 1.0):')
 plt.show()
 \end{lstlisting}
-\noindent \texttt{\% end exec}\\
-% end exec
 
 The above code chunk should be rendered into a histogram plot (note
 how Python libraries were actually loaded in the previous code chunk
@@ -323,21 +362,15 @@ window!).
 Alternatively, you can just point the code chunk environment to a
 Python script, e.g., `pythonstuff/pythonscatter.py':\\
 
-\noindent \texttt{\% begin exec}
-% begin exec
-\lstinputlisting[language=Python, style=pythoncustomstyle,
+\lstinputlisting[language=Python, style=pythoncustomstyle-exec,
   caption={Scatterplot of 1,000 random draws from $\mathcal{N}$(0.0, 1.0) as
     a function of their indices.}]{pythonstuff/pythonscatter.py}
-\noindent \texttt{\% end exec}\\
-% end exec
 
 \subsubsection*{R code chunks}
 
-The following code chunk is written in R and
-executed by the Stencila engine:\\
+The following code chunk (using the ``listings'' package) is written
+in R and executed by the Stencila engine:\\
 
-\noindent \texttt{\% begin exec}
-% begin exec
 \begin{lstlisting}[language=R, breaklines=true, showspaces=false,
   showstringspaces=false, tabsize=4, captionpos=b, frame=single,
   caption={Histogram of 1,000 random draws from $\mathcal{N}$(0.0, 1.0).}]
@@ -347,8 +380,21 @@ x = rnorm(1000)
 
 ggplot(data.frame(x), aes(x=x)) + geom_histogram(fill="lightgray", color=NA) + theme_classic() + xlab("Random variable x") + ylab("Frequency")
 \end{lstlisting}
+
+We can also use ``minted'' to do the same thing:\\
+
+% begin exec
+\texttt{\% begin exec}
+\begin{minted}[gobble=0, frame=single, linenos, breaklines]{R}
+library(ggplot2)
+  
+x = rnorm(1000)
+
+ggplot(data.frame(x), aes(x=x)) + geom_histogram(fill="lightgray", color=NA) + theme_classic() + xlab("Random variable x") + ylab("Frequency")
+\end{minted}
+\captionof{lstlisting}{Histogram of 1,000 random draws from $\mathcal{N}$(0.0, 1.0).}
+\texttt{\% end exec}
 % end exec
-\noindent  \texttt{\% end exec}
 
 \end{document}
 
