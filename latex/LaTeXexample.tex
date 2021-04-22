@@ -60,6 +60,7 @@
 \usepackage{minted} % for YAML environment
 \usepackage{xcolor} % for defining colors
 \usepackage{caption} % for \captionof{}
+\usepackage[breakable]{tcolorbox} % text box
 \usepackage{graphicx}
 
 % --- Customization --- %
@@ -307,12 +308,6 @@ If we want executable Python code chunks, we need to create another
 \lstdefinestyle{pythoncustomstyle-exec}{style=pythoncustomstyle}
 \end{lstlisting}
 
-\subsubsection*{Using \LaTeX 's ``minted'' package}
-
-When using ``minted'', we need to add \texttt{\% begin
-  exec} before the code chunk, and \texttt{\% end
-  exec} after it (see below).
-
 \subsubsection*{Python code chunks}
 
 The following code chunk (using the ``listings'' package) is written
@@ -341,8 +336,8 @@ was executed previously:\\
 mu = 0.0
 sigma = 1.0
 x = mu + sigma * np.random.randn(1000)
-% end exec
-\noindent  \texttt{\% end exec}
+
+p = 0.05 # will be used later
 
 num_bins = 30
 fig = plt.figure()
@@ -378,13 +373,19 @@ library(ggplot2)
   
 x = rnorm(1000)
 
+p = 0.05 # will be used later
+
 ggplot(data.frame(x), aes(x=x)) + geom_histogram(fill="lightgray", color=NA) + theme_classic() + xlab("Random variable x") + ylab("Frequency")
 \end{lstlisting}
 
-We can also use ``minted'' to do the same thing:\\
+\subsubsection*{Using \LaTeX 's ``minted'' package}
+
+When using ``minted'', we need to add \texttt{\% begin
+  exec} before the code chunk, and \texttt{\% end
+  exec} after it.
+We do this below for an executable R code chunk:
 
 % begin exec
-\texttt{\% begin exec}
 \begin{minted}[gobble=0, frame=single, linenos, breaklines]{R}
 library(ggplot2)
   
@@ -392,9 +393,42 @@ x = rnorm(1000)
 
 ggplot(data.frame(x), aes(x=x)) + geom_histogram(fill="lightgray", color=NA) + theme_classic() + xlab("Random variable x") + ylab("Frequency")
 \end{minted}
-\captionof{lstlisting}{Histogram of 1,000 random draws from $\mathcal{N}$(0.0, 1.0).}
-\texttt{\% end exec}
 % end exec
+\captionof{lstlisting}{Histogram of 1,000 random draws from $\mathcal{N}$(0.0, 1.0).}
+
+\subsection*{Inline code}
+
+Another thing you might want to have in your document are executable
+inline code expressions.
+Again, we can use the ``listings'' package and try an R code
+expression: ``the p-value was \lstinline[language=R]{1.0 - 0.99}''.
+The same thing can be achieved via the ``minted'' package: ``the
+p-value was \mintinline{R}{1.0 - 0.99}''.
+
+\subsection*{Some other random things}
+
+Sometimes you might want to organize your manuscript into boxes, such
+as the one below:
+
+\vspace{0.5cm}
+
+\begin{tcolorbox}[breakable, width=\textwidth, colback=gray!10, boxrule=0pt,
+  title=Box 1: A photo of the greatest animal, fonttitle=\bfseries]
+  \small
+
+  Giant pandas spend 10-16 hours of their day feeding.
+  Their extended wrist bones work as a thumb, which makes them look
+  only the more adorable when they hold bamboo stems.
+  They also occasionally do handstands against trees when they pee
+  (probably as a way to mark their territory higher up on trees)!
+
+  \begin{center}
+    \includegraphics[width=6cm]{figs/pandaadult.jpg}
+    \label{fig:panda2}
+    \captionof{figure}{The most adorable animal, hands down, again.}
+  \end{center}
+    
+\end{tcolorbox}
 
 \end{document}
 
